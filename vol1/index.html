@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
-            background: linear-gradient(135deg, #1a4d3e 0%, #0d2818 100%);
+            font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, serif;
+            background: #000000;
             color: #e8e4df;
             overflow-x: hidden;
         }
@@ -22,100 +22,123 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(13, 40, 24, 0.9);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+            padding: 20px clamp(20px, 5vw, 60px);
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
+        .header-back {
+            background: none;
+            border: none;
+            color: #d4a574;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .header-title {
-            font-size: 1.2rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            color: #c9a962;
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #d4a574;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .header-menu {
+            background: none;
+            border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #c9a962;
+            color: #d4a574;
         }
 
         .breadcrumb {
-            padding: 20px 40px;
-            font-size: 0.9rem;
+            padding: clamp(15px, 3vh, 25px) clamp(20px, 5vw, 60px);
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
             color: #8a8580;
-            letter-spacing: 1px;
-            background: rgba(13, 40, 24, 0.6);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+            letter-spacing: 0.08em;
+            background: rgba(0, 0, 0, 0.8);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.08);
+            overflow-x: auto;
         }
 
         .breadcrumb span {
-            margin: 0 12px;
+            margin: 0 0.8em;
+            white-space: nowrap;
         }
 
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 70vh;
-            position: relative;
-            padding: 80px 40px;
+        .collection-header {
+            padding: clamp(40px, 8vh, 80px) clamp(20px, 5vw, 60px) clamp(20px, 4vh, 40px);
             text-align: center;
+            background: rgba(0, 0, 0, 0.6);
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(20,70,55,0.2) 0%, rgba(13,40,24,0.5) 100%);
-            pointer-events: none;
+        .collection-label {
+            font-size: clamp(0.8rem, 1.5vw, 1rem);
+            letter-spacing: 0.2em;
+            color: #d4a574;
+            font-weight: 300;
+            margin-bottom: 15px;
         }
 
-        .hero-content {
+        .hero-section {
+            padding: clamp(40px, 8vh, 100px) clamp(20px, 5vw, 60px);
+            text-align: center;
             position: relative;
-            z-index: 1;
-            max-width: 800px;
-            animation: fadeIn 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+        .hero-card {
+            position: relative;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            padding: clamp(40px, 6vh, 80px) clamp(30px, 5vw, 60px);
+            background: linear-gradient(135deg, rgba(100, 90, 80, 0.15) 0%, rgba(50, 50, 50, 0.1) 100%);
+            border: 1px solid rgba(212, 165, 116, 0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hero-card::before {
+            content: '壹';
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 120px;
+            color: rgba(212, 165, 116, 0.08);
+            font-weight: 300;
+            line-height: 1;
+            font-family: 'Noto Serif TC', serif;
         }
 
         .hero-title {
-            font-size: 5rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 300;
-            letter-spacing: 15px;
-            margin-bottom: 20px;
-            color: #e8e4df;
-            font-family: 'Noto Serif TC', serif;
+            letter-spacing: 0.15em;
+            color: #d4a574;
+            margin-bottom: clamp(15px, 3vh, 30px);
+            font-family: 'Noto Serif TC', Georgia, serif;
             line-height: 1.1;
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: #a8a09a;
-            letter-spacing: 3px;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #b8a495;
             line-height: 1.8;
-            margin-bottom: 60px;
+            letter-spacing: 0.05em;
+            font-weight: 300;
+            margin-bottom: 40px;
         }
 
         .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: clamp(20px, 4vw, 50px);
+            margin: clamp(40px, 8vh, 60px) 0;
         }
 
         .stat-item {
@@ -123,71 +146,34 @@
         }
 
         .stat-number {
-            font-size: 3.5rem;
-            color: #c9a962;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: #d4a574;
             font-weight: 300;
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+            margin-bottom: 8px;
+            letter-spacing: 0.1em;
         }
 
         .stat-label {
-            font-size: 0.95rem;
-            color: #a8a09a;
-            letter-spacing: 2px;
-        }
-
-        .scroll-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            border: 2px solid #c9a962;
-            border-radius: 50px;
-            padding: 12px 40px;
-            color: #c9a962;
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .scroll-button:hover {
-            background: rgba(201, 169, 98, 0.1);
-        }
-
-        .scroll-button svg {
-            width: 16px;
-            height: 16px;
-            stroke: #c9a962;
-            fill: none;
-            stroke-width: 2;
-        }
-
-        .content {
-            padding: 60px 40px;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            color: #c9a962;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-align: center;
+            font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+            color: #8a8580;
+            letter-spacing: 0.08em;
+            font-weight: 300;
         }
 
         .trips-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
+            margin-top: clamp(40px, 8vh, 80px);
         }
 
         .trip-card {
-            border: 2px solid rgba(201, 169, 98, 0.3);
-            border-radius: 20px;
-            padding: 30px;
-            background: rgba(26, 77, 62, 0.4);
-            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 8px;
+            padding: clamp(25px, 4vh, 50px);
+            background: rgba(20, 20, 20, 0.8);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             cursor: pointer;
             text-decoration: none;
             color: inherit;
@@ -196,102 +182,103 @@
         }
 
         .trip-card:hover {
-            border-color: #c9a962;
-            background: rgba(26, 77, 62, 0.6);
-            transform: translateY(-5px);
+            border-color: #d4a574;
+            background: rgba(40, 35, 30, 0.95);
+            transform: translateY(-8px);
+        }
+
+        .trip-code {
+            font-size: 0.7rem;
+            color: #8a8580;
+            letter-spacing: 0.15em;
+            margin-bottom: 12px;
+            font-weight: 300;
         }
 
         .trip-name {
-            font-size: 1.3rem;
-            color: #c9a962;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: #d4a574;
             margin-bottom: 12px;
-            letter-spacing: 2px;
+            letter-spacing: 0.05em;
+            font-weight: 400;
         }
 
         .trip-desc {
-            font-size: 0.95rem;
-            color: #a8a09a;
+            font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+            color: #b8a495;
             line-height: 1.6;
+            font-weight: 300;
         }
 
         .footer {
-            padding: 40px;
+            padding: clamp(40px, 8vh, 60px) clamp(20px, 5vw, 60px);
             text-align: center;
             color: #8a8580;
-            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            border-top: 1px solid rgba(212, 165, 116, 0.1);
+            font-size: clamp(0.8rem, 1.2vw, 0.9rem);
         }
 
         .footer-nav {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: clamp(20px, 4vw, 40px);
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
 
         .footer-nav a {
-            color: #c9a962;
+            color: #d4a574;
             text-decoration: none;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            letter-spacing: 0.05em;
+            transition: opacity 0.3s ease;
         }
 
         .footer-nav a:hover {
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-                letter-spacing: 8px;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .header {
-                padding: 15px 20px;
-            }
-
             .breadcrumb {
-                padding: 15px 20px;
-                font-size: 0.8rem;
+                white-space: normal;
             }
 
-            .hero {
-                padding: 40px 20px;
-                min-height: auto;
+            .hero-card::before {
+                font-size: 80px;
+                top: -20px;
+            }
+
+            .trips-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <button style="background: none; border: none; color: #c9a962; font-size: 1.5rem; cursor: pointer;">←</button>
-        <h1 class="header-title">第一卷《初見》— 旅魂</h1>
+        <button class="header-back" onclick="window.location.href='../index.html'">←</button>
+        <div class="header-title">第一卷《初見》— 旅魂</div>
         <div class="header-menu">⋯</div>
     </header>
 
     <nav class="breadcrumb">
-        <span style="color: #c9a962;">旅魂</span>
+        <span style="color: #d4a574;">旅魂</span>
         <span>|</span>
         <span>第一卷</span>
         <span>|</span>
-        <span>VOLUME總覽</span>
-        <span>|</span>
-        <span>第一卷</span>
-        <span>|</span>
-        <span>精選</span>
+        <span>卷冊總覽</span>
     </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h2 class="hero-title">初見</h2>
-            <p class="hero-subtitle">世界那麼大，邁出第一步</p>
+    <section class="collection-header">
+        <div class="collection-label">COLLECTION · 卷冊一覽</div>
+    </section>
+
+    <section class="hero-section">
+        <div class="hero-card">
+            <h1 class="hero-title">初見</h1>
+            <p class="hero-subtitle">
+                這不只是一趟趟腳步的挪移，<br>
+                而是一場用生命與天地對話的靈魂淬煉。
+            </p>
 
             <div class="stats">
                 <div class="stat-item">
@@ -307,31 +294,23 @@
                     <div class="stat-label">國家</div>
                 </div>
             </div>
-
-            <button class="scroll-button">
-                SCROLL
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 5v14M5 15l7 7 7-7"/>
-                </svg>
-            </button>
         </div>
-    </section>
-
-    <section class="content">
-        <h3 class="section-title">三段旅程</h3>
 
         <div class="trips-grid">
             <a href="shanxi.html" class="trip-card">
+                <div class="trip-code">Vol.1-01</div>
                 <div class="trip-name">山西</div>
                 <div class="trip-desc">探尋中原文明的深度，感受歷史的厚重感</div>
             </a>
 
             <a href="baltic.html" class="trip-card">
+                <div class="trip-code">Vol.1-02</div>
                 <div class="trip-name">波羅的海</div>
                 <div class="trip-desc">三小國風情，北歐迷人的海灣之旅</div>
             </a>
 
             <a href="baikal.html" class="trip-card">
+                <div class="trip-code">Vol.1-03</div>
                 <div class="trip-name">西伯利亞</div>
                 <div class="trip-desc">20天經典大鐵路，跨越莫斯科至太平洋</div>
             </a>
@@ -341,7 +320,7 @@
     <footer class="footer">
         <div class="footer-nav">
             <a href="../index.html">← 返回首頁</a>
-            <a href="../vol2/index.html">下一卷 →</a>
+            <a href="highlights.html">進入精選集 →</a>
         </div>
         <p>© 2026 旅魂 — 陳文斌的旅途紀行</p>
     </footer>

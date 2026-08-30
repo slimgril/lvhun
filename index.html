@@ -11,217 +11,214 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
-            background: #0d0d0d;
-            color: #e8e4df;
+        html, body {
+            width: 100%;
+            height: 100%;
             overflow-x: hidden;
         }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 30px;
-            background: transparent;
-            position: relative;
-            z-index: 10;
-        }
-
-        .header-back {
-            background: none;
-            border: none;
+        body {
+            font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, serif;
+            background: #000000;
             color: #e8e4df;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .header-title {
-            font-size: 0.95rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            color: #e8e4df;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .header-menu {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #e8e4df;
-            padding: 8px;
         }
 
         .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            position: relative;
-            padding: 40px 30px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center 30%, rgba(200, 100, 40, 0.15) 0%, rgba(0, 0, 0, 0.95) 60%);
+            z-index: 0;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             text-align: center;
-            max-width: 700px;
-            animation: fadeIn 1.2s ease-out;
+            width: 100%;
+            padding: 60px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
         }
 
-        @keyframes fadeIn {
+        .hero-main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            animation: fadeInScale 1.5s ease-out;
+        }
+
+        @keyframes fadeInScale {
             from {
                 opacity: 0;
+                transform: scale(0.95);
             }
             to {
                 opacity: 1;
+                transform: scale(1);
             }
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 4px;
-            color: #c9a962;
-            margin-bottom: 40px;
-            font-weight: 300;
         }
 
         .hero-title {
-            font-size: 6rem;
+            font-size: clamp(4rem, 12vw, 9rem);
             font-weight: 300;
-            letter-spacing: 12px;
+            letter-spacing: 0.3em;
+            color: #d4a574;
+            font-family: 'Noto Serif TC', Georgia, serif;
+            line-height: 1;
             margin-bottom: 30px;
-            color: #c9a962;
-            font-family: 'Noto Serif TC', serif;
-            line-height: 1.1;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
         }
 
-        .hero-quote {
-            font-size: 1.15rem;
-            color: #a8a09a;
+        .hero-spirit {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #b8a495;
             line-height: 1.8;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 0.08em;
+            max-width: 600px;
+            margin-bottom: 60px;
             font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .hero-footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px 30px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 3;
+        }
+
+        .hero-motto {
+            font-size: clamp(0.85rem, 1.5vw, 1rem);
+            color: #d4a574;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .hero-author {
-            font-size: 0.95rem;
-            color: #c9a962;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
+            font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+            color: #8a8580;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
             font-weight: 300;
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            animation: bounce 2.5s infinite;
+        .scroll-arrow {
+            font-size: 1.2rem;
+            color: #8a8580;
+            animation: slideDown 2s ease-in-out infinite;
+            cursor: pointer;
         }
 
-        @keyframes bounce {
+        @keyframes slideDown {
             0%, 100% {
-                transform: translateX(-50%) translateY(0);
-                opacity: 0.6;
+                transform: translateY(0);
+                opacity: 0.5;
             }
             50% {
-                transform: translateX(-50%) translateY(12px);
+                transform: translateY(8px);
                 opacity: 1;
             }
         }
 
-        .scroll-indicator p {
-            font-size: 0.85rem;
-            color: #8a8580;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
-            font-weight: 300;
-        }
-
-        .scroll-indicator::after {
-            content: '│';
-            display: block;
-            color: #8a8580;
-            font-size: 1.2rem;
-            line-height: 1;
-        }
-
         @media (max-width: 768px) {
-            .header-title {
-                font-size: 0.8rem;
+            .hero {
+                height: 100vh;
             }
 
-            .hero {
-                min-height: 90vh;
-                padding: 30px 20px;
+            .hero-content {
+                padding: 40px 20px;
             }
 
             .hero-title {
-                font-size: 3.5rem;
-                letter-spacing: 6px;
                 margin-bottom: 20px;
             }
 
-            .hero-subtitle {
-                font-size: 0.75rem;
-                letter-spacing: 2px;
+            .hero-spirit {
+                font-size: 0.95rem;
+                margin-bottom: 40px;
+                max-width: 90%;
             }
 
-            .hero-quote {
-                font-size: 0.95rem;
-                margin-bottom: 30px;
+            .hero-motto {
+                font-size: 0.85rem;
+                margin-bottom: 15px;
             }
 
             .hero-author {
+                font-size: 0.8rem;
+            }
+
+            .hero-footer {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 3rem;
+                letter-spacing: 0.2em;
+            }
+
+            .hero-spirit {
                 font-size: 0.85rem;
+                line-height: 1.6;
+            }
+
+            .hero-motto {
+                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <button class="header-back">←</button>
-        <div class="header-title">旅魂 — 陳文斌的旅途紀行</div>
-        <button class="header-menu">⋯</button>
-    </header>
-
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-subtitle">A TRAVEL MEMOIR SERIES</p>
-            <h1 class="hero-title">旅魂</h1>
-            <p class="hero-quote">
-                雙腳踏遍世界，餘生皆為旅途
-            </p>
-            <p class="hero-author">陳文斌 的旅途紀行</p>
-        </div>
+            <div class="hero-main">
+                <h1 class="hero-title">旅魂</h1>
+                <p class="hero-spirit">
+                    這不只是一趟趟腳步的挪移，<br>
+                    而是一場用生命與天地對話的靈魂淬煉。
+                </p>
+            </div>
 
-        <div class="scroll-indicator">
-            <p>SCROLL</p>
+            <div class="hero-footer">
+                <p class="hero-motto">
+                    退休不是結束，而是另一種開始。<br>
+                    用雙腳丈量世界，用餘生書寫旅途。
+                </p>
+                <p class="hero-author">陳文斌 的 旅途紀行</p>
+                <div class="scroll-arrow" onclick="document.location.href='vol1/index.html'">↓</div>
+            </div>
         </div>
     </section>
-
-    <script>
-        document.querySelector('.header-back').addEventListener('click', () => {
-            history.back();
-        });
-
-        document.querySelector('.header-menu').addEventListener('click', () => {
-            // Menu functionality here
-        });
-
-        // Scroll to next section
-        document.addEventListener('wheel', (e) => {
-            if (e.deltaY > 0 && window.scrollY < 100) {
-                window.location.href = 'vol1/index.html';
-            }
-        });
-    </script>
 </body>
 </html>

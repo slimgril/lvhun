@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《初見》三章融合 — 旅魂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, serif;
+            background: #000000;
+            color: #e8e4df;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 60px 30px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(135deg, rgba(60, 40, 30, 0.4) 0%, rgba(80, 60, 50, 0.2) 30%),
+                linear-gradient(-135deg, rgba(40, 60, 80, 0.25) 0%, rgba(50, 70, 90, 0.15) 30%),
+                linear-gradient(90deg, rgba(80, 50, 40, 0.2) 0%, rgba(40, 50, 70, 0.25) 100%),
+                radial-gradient(ellipse at center, rgba(100, 80, 70, 0.1) 0%, rgba(20, 20, 20, 0.9) 70%);
+            z-index: 0;
+            filter: grayscale(65%) contrast(1.1);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(150, 100, 60, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(60, 100, 150, 0.06) 0%, transparent 50%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-spirit {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: #d4a574;
+            line-height: clamp(1.8, 4vw, 2);
+            letter-spacing: 0.08em;
+            font-weight: 300;
+            margin-bottom: clamp(40px, 8vh, 80px);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .hero-divider {
+            width: 40px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4a574, transparent);
+            margin-bottom: clamp(40px, 8vh, 60px);
+        }
+
+        .scroll-section {
+            width: 100%;
+            text-align: center;
+            padding-top: clamp(20px, 4vh, 40px);
+        }
+
+        .scroll-text {
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            color: #8a8580;
+            letter-spacing: 0.1em;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .scroll-arrow {
+            font-size: 1.5rem;
+            color: #8a8580;
+            animation: slideDown 2.5s ease-in-out infinite;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        @keyframes slideDown {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(10px);
+                opacity: 1;
+            }
+        }
+
+        .journey-indicators {
+            position: absolute;
+            top: clamp(20px, 4vh, 40px);
+            right: clamp(20px, 5vw, 50px);
+            text-align: right;
+            z-index: 3;
+        }
+
+        .journey-tag {
+            font-size: 0.75rem;
+            color: #8a8580;
+            letter-spacing: 0.1em;
+            margin-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .journey-title {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: #d4a574;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(212, 165, 116, 0.3);
+            color: #d4a574;
+            padding: clamp(10px, 2vw, 15px) clamp(12px, 2.5vw, 18px);
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 3;
+            border-radius: 4px;
+        }
+
+        .nav-prev {
+            left: clamp(15px, 3vw, 30px);
+        }
+
+        .nav-next {
+            right: clamp(15px, 3vw, 30px);
+        }
+
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.9);
+            border-color: #d4a574;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 100vh;
+                padding: 40px 20px;
+            }
+
+            .journey-indicators {
+                display: none;
+            }
+
+            .hero-spirit {
+                margin-bottom: 30px;
+            }
+
+            .scroll-section {
+                padding-top: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 15px;
+            }
+
+            .hero-spirit {
+                font-size: 1.05rem;
+                line-height: 1.7;
+            }
+
+            .nav-button {
+                padding: 8px 10px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="journey-indicators">
+            <div class="journey-tag">Vol.1 精選集</div>
+            <div class="journey-title">三章融合</div>
+        </div>
+
+        <button class="nav-button nav-prev" onclick="window.location.href='index.html'">‹</button>
+        <button class="nav-button nav-next" onclick="window.location.href='shanxi.html'">›</button>
+
+        <div class="hero-content">
+            <div class="hero-divider"></div>
+            <p class="hero-spirit">
+                這不只是一趟趟腳步的挪移，<br>
+                而是一場用生命與天地對話的靈魂淬煉。
+            </p>
+            <div class="hero-divider"></div>
+
+            <div class="scroll-section">
+                <div class="scroll-text">進入《初見》的紀行</div>
+                <div class="scroll-arrow" onclick="window.location.href='shanxi.html'">↓</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
