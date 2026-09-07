@@ -54,6 +54,24 @@
   }
   @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
 
+  /* ── HERO PHOTO STRIP（三聯零裁切地標照帶） ── */
+  .hero-photo-strip {
+    display:flex; justify-content:center; gap:15px; margin-top:40px;
+    position:relative; flex-wrap:wrap;
+  }
+  .hero-photo-frame {
+    background:rgba(0,0,0,0.25); border:1px solid rgba(212,168,67,0.35);
+    border-radius:6px; padding:10px; box-shadow:0 8px 24px rgba(0,0,0,0.3);
+    width:260px; height:200px; display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .hero-photo-frame img {
+    max-width:100%; height:auto; max-height:100%; object-fit:contain; display:block;
+  }
+  @media (max-width:720px) {
+    .hero-photo-frame { width:100%; max-width:320px; height:180px; }
+  }
+
   /* ── ROUTE MAP ── */
   .map-section {
     background:var(--green-dark); padding:60px 20px; text-align:center;
