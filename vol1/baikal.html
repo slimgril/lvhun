@@ -47,6 +47,13 @@
     width: 100%; height: 100%; object-fit: contain; display: block;
   }
   .site-img.video-card { background-size: contain; background-repeat: no-repeat; }
+  /* 主網格（多圖並列，排除 --pair／--solo 特寫版）實測多數照片為 900x1200 直式，
+     相框比例改貼近 3:4 以消除 4:3 橫向相框造成的左右大白邊；--pair／--solo 維持原本 4:3 特寫節奏不動 */
+  .sites-grid:not(.sites-grid--pair):not(.sites-grid--solo) .site-img,
+  .sites-grid:not(.sites-grid--pair):not(.sites-grid--solo) .site-img.photo,
+  .sites-grid:not(.sites-grid--pair):not(.sites-grid--solo) .site-img.video-card {
+    aspect-ratio: 3 / 4;
+  }
 </style>
 </head>
 <body>
