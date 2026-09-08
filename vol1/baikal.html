@@ -54,6 +54,24 @@
   .sites-grid:not(.sites-grid--pair):not(.sites-grid--solo) .site-img.video-card {
     aspect-ratio: 3 / 4;
   }
+  /* Day17 琥珀廳深度專題：一組主題（標題＋一段文字）對應一排照片，
+     取代原本每張照片各自一段文字的寫法；照片本身沿用既有 .site-img.photo 零裁切相框 */
+  .theme-block { margin: 0 0 40px; }
+  .theme-block:first-of-type { margin-top: 4px; }
+  .theme-kicker {
+    color: var(--gold); font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;
+  }
+  .theme-title {
+    color: var(--green-dark); font-size: 1.3rem; font-weight: 700;
+    margin: 0 0 10px;
+  }
+  .theme-desc {
+    font-size: 0.95rem; line-height: 1.8; color: var(--text);
+    max-width: 68ch; margin: 0 0 20px;
+  }
+  .sites-grid--photos-only .site-card { box-shadow: none; background: none; }
+  .sites-grid--photos-only .site-card .site-img { border-radius: 16px; overflow: hidden; }
 </style>
 </head>
 <body>
@@ -2042,7 +2060,7 @@
         <div class="site-img photo"><img src="../photos/baikal-rail/day14/gulf-of-finland-coast-downloaded.jpg" alt="芬蘭灣海岸線" loading="lazy" decoding="async"><div class="img-label">芬蘭灣海岸線</div></div>
         <div class="site-body">
           <div class="site-name">芬蘭灣海岸線</div>
-          <div class="site-desc">沿芬蘭灣與森林、河湖景觀前往科特林島。</div>
+          <div class="site-desc">芬蘭灣位於波羅的海東部，聖彼得堡坐落於海灣東端與涅瓦河三角洲交會處。遼闊水域不僅塑造城市的濱海景觀，也構成俄羅斯通往波羅的海的重要門戶，見證聖彼得堡由河口城市崛起為帝國海港的歷史。</div>
         </div>
       </div>
       <div class="site-card">
@@ -2060,10 +2078,10 @@
         </div>
       </div>
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day14/peterhof-grand-cascade-downloaded.jpg" alt="彼得夏宮花園" loading="lazy" decoding="async"><div class="img-label">彼得夏宮花園</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day14/peterhof-grand-cascade-downloaded.jpg" alt="彼得夏宮大瀑布噴泉群" loading="lazy" decoding="async"><div class="img-label">彼得夏宮大瀑布噴泉群</div></div>
         <div class="site-body">
-          <div class="site-name">彼得夏宮花園</div>
-          <div class="site-desc">面向芬蘭灣的皇家花園與噴泉群。</div>
+          <div class="site-name">彼得夏宮大瀑布噴泉群</div>
+          <div class="site-desc">大瀑布噴泉群由層疊水道、洞窟、噴泉與鍍金雕像組成，自彼得夏宮大宮殿前方一路延伸至海運河。水流依地勢自然運行，不使用抽水泵，在嚴謹的水利工程與華麗雕塑之間，展現彼得大帝時代的皇家氣勢。</div>
         </div>
       </div>
     </div>
@@ -2117,10 +2135,10 @@
         </div>
       </div>
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/savior-on-spilled-blood-downloaded.jpg" alt="浴血復活大教堂" loading="lazy" decoding="async"><div class="img-label">浴血復活大教堂</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day15/savior-on-spilled-blood-downloaded.jpg" alt="滴血救世主教堂" loading="lazy" decoding="async"><div class="img-label">滴血救世主教堂</div></div>
         <div class="site-body">
-          <div class="site-name">浴血復活大教堂</div>
-          <div class="site-desc">以彩色洋蔥圓頂與馬賽克裝飾聞名，是聖彼得堡視覺辨識度最高的教堂之一。</div>
+          <div class="site-name">滴血救世主教堂</div>
+          <div class="site-desc">教堂興建於沙皇亞歷山大二世於 1881 年遇刺、身受致命傷的地點，正式名稱為基督復活教堂。彩色洋蔥圓頂、俄羅斯復古式建築與大面積馬賽克，使它成為聖彼得堡最鮮明的地標，也讓帝國改革、政治衝突與沙皇命運凝結於同一座紀念建築。</div>
         </div>
       </div>
     </div>
@@ -2276,175 +2294,107 @@
     <div class="accommodation"><div class="acc-label">住宿</div><div class="acc-name">莫斯科市區酒店</div></div>
   </div>
     <div class="extra-tip extra-tip--meta">餐食：早：飯店內／午：俄式料理／晚：俄式料理</div>
+    <div class="theme-block">
+      <div class="theme-kicker">傳奇歷史</div>
+      <h3 class="theme-title">從普魯士宮廷到俄羅斯皇村</h3>
+      <p class="theme-desc">琥珀廳始建於十八世紀初的普魯士，1716 年由普魯士國王腓特烈・威廉一世贈予彼得大帝。其後移至皇村葉卡捷琳娜宮，經重新設計與擴建，以琥珀壁板、金箔和鏡面構成華麗廳堂，並因罕見規模而被譽為「世界第八大奇蹟」。</p>
+      <div class="sites-grid sites-grid--photos-only">
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817111657.jpg" alt="琥珀廳入口" loading="lazy" decoding="async"><div class="img-label">琥珀廳入口</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817111934.jpg" alt="琥珀色夢幻" loading="lazy" decoding="async"><div class="img-label">琥珀色夢幻</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817112353.jpg" alt="浮雕繁複" loading="lazy" decoding="async"><div class="img-label">浮雕繁複</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120438.jpg" alt="皇家金碧" loading="lazy" decoding="async"><div class="img-label">皇家金碧</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120558.jpg" alt="金色交織" loading="lazy" decoding="async"><div class="img-label">金色交織</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120632.jpg" alt="鏡面倒影" loading="lazy" decoding="async"><div class="img-label">鏡面倒影</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817121757.jpg" alt="細節之美" loading="lazy" decoding="async"><div class="img-label">細節之美</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="theme-block">
+      <div class="theme-kicker">二戰失蹤懸案</div>
+      <h3 class="theme-title">消失於戰火中的帝國珍寶</h3>
+      <p class="theme-desc">1941 年德軍占領皇村後，拆卸琥珀廳壁板並運往東普魯士柯尼斯堡展出。隨著戰局逆轉，壁板再次裝箱，此後可靠紀錄中斷。原作究竟毀於戰火、被秘密掩埋或轉運他處，始終沒有定論，成為第二次世界大戰最著名的失落藝術懸案之一。</p>
+      <div class="sites-grid sites-grid--photos-only">
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817123613.jpg" alt="光的藝術" loading="lazy" decoding="async"><div class="img-label">光的藝術</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817124538.jpg" alt="華麗至極" loading="lazy" decoding="async"><div class="img-label">華麗至極</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817125517.jpg" alt="皇家氣度" loading="lazy" decoding="async"><div class="img-label">皇家氣度</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_132157.jpg" alt="中午陽光" loading="lazy" decoding="async"><div class="img-label">中午陽光</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181239.jpg" alt="午後寧靜" loading="lazy" decoding="async"><div class="img-label">午後寧靜</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181553.jpg" alt="廳堂全景" loading="lazy" decoding="async"><div class="img-label">廳堂全景</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="theme-block">
+      <div class="theme-kicker">近二十五年的現代復原</div>
+      <h3 class="theme-title">在歷史影像中重建琥珀廳</h3>
+      <p class="theme-desc">原作失蹤後，蘇聯於 1979 年啟動復原工程。工匠依據舊照片、圖稿與留存資料，重新研究琥珀雕刻、拼接、著色及金箔裝飾技術，工程延續至 2003 年才告完成。復原廳重現原作逾六噸琥珀所形成的宏大尺度，也是跨世代的文化資產重建工程。</p>
+      <div class="sites-grid sites-grid--photos-only">
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181622.jpg" alt="光影層次" loading="lazy" decoding="async"><div class="img-label">光影層次</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181930.jpg" alt="雕刻藝術" loading="lazy" decoding="async"><div class="img-label">雕刻藝術</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182046.jpg" alt="色彩層疊" loading="lazy" decoding="async"><div class="img-label">色彩層疊</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182201.jpg" alt="纹理細緻" loading="lazy" decoding="async"><div class="img-label">纹理細緻</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182403.jpg" alt="黃金點綴" loading="lazy" decoding="async"><div class="img-label">黃金點綴</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182606.jpg" alt="廳內深處" loading="lazy" decoding="async"><div class="img-label">廳內深處</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="theme-block">
+      <div class="theme-kicker">工藝與光影美學</div>
+      <h3 class="theme-title">琥珀、金箔與鏡面的光影構成</h3>
+      <p class="theme-desc">琥珀廳以不同色澤與透明度的琥珀片組成壁板、浮雕和裝飾圖案，再搭配金箔、鏡面及半寶石鑲嵌。光線經由半透明材質、金色框飾與鏡面反射，在室內形成深淺多變的暖色層次，使材料、雕刻與空間共同構成完整的巴洛克裝飾藝術。</p>
+      <div class="sites-grid sites-grid--photos-only">
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_204121.jpg" alt="傍晚余暉" loading="lazy" decoding="async"><div class="img-label">傍晚余暉</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_211812.jpg" alt="夜幕琥珀廳" loading="lazy" decoding="async"><div class="img-label">夜幕琥珀廳</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_211923.jpg" alt="燈火璀璨" loading="lazy" decoding="async"><div class="img-label">燈火璀璨</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_212734.jpg" alt="夜間寧靜" loading="lazy" decoding="async"><div class="img-label">夜間寧靜</div></div>
+        </div>
+        <div class="site-card site-card--photo-only">
+          <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_212816.jpg" alt="最後一眼" loading="lazy" decoding="async"><div class="img-label">最後一眼</div></div>
+        </div>
+      </div>
+    </div>
     <div class="sites-grid">
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817111657.jpg" alt="琥珀廳入口" loading="lazy" decoding="async"><div class="img-label">琥珀廳入口</div></div>
-        <div class="site-body">
-          <div class="site-name">琥珀廳入口</div>
-          <div class="site-desc">推開門的瞬間，眼睛被灼得睜不開。琥珀色的牆面、金色的浮雕、鏡子反射著光，交疊成一整片溫暖得不真實的色調。必須眯起眼睛才能慢慢適應這麼多的黃金。站在門口，感覺像是走進了一場光的謝幕。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817111934.jpg" alt="琥珀色夢幻" loading="lazy" decoding="async"><div class="img-label">琥珀色夢幻</div></div>
-        <div class="site-body">
-          <div class="site-name">琥珀色夢幻</div>
-          <div class="site-desc">整個房間都在發光。天花板是黃金、牆壁是琥珀、地板是拋光的木頭，光線被反覆投射，像是被困在一個光的迷宮裡。相機的閃光燈都顯得多餘了。鏡子把這種金色無限複製、無限延伸，站在中間就像被吞進了一個黃金的夢。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817112353.jpg" alt="浮雕繁複" loading="lazy" decoding="async"><div class="img-label">浮雕繁複</div></div>
-        <div class="site-body">
-          <div class="site-name">浮雕繁複</div>
-          <div class="site-desc">靠近一面牆，才看清楚它是由多少層複合而成的。琥珀片、金箔、漆畫、雕刻——層層疊疊，沒有一處是簡單的。工匠花了幾年時間才完成這一面牆，現在只有遊客花二十秒時間看它。時間的不對等在這裡變得格外明顯。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120438.jpg" alt="皇家金碧" loading="lazy" decoding="async"><div class="img-label">皇家金碧</div></div>
-        <div class="site-body">
-          <div class="site-name">皇家金碧</div>
-          <div class="site-desc">這就是沙皇時代的奢華——不是低調的優雅，而是張揚的、毫不掩飾的浪費。每一寸都要金色、都要眩目、都要證明權力的無所不能。走在這裡，你會不自覺地放輕腳步，像是怕打碎這個世紀的夢。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120558.jpg" alt="金色交織" loading="lazy" decoding="async"><div class="img-label">金色交織</div></div>
-        <div class="site-body">
-          <div class="site-name">金色交織</div>
-          <div class="site-desc">兩面牆交接的角落，金色在此交織成了一個無法計數的複雜圖案。光在這裡彙聚、反射、再彙聚，像是有人把整個宇宙的光都集中在了這一個點。拍照的時候，相機的測光系統會崩潰，因為它從沒想過會有這麼多的光。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817120632.jpg" alt="鏡面倒影" loading="lazy" decoding="async"><div class="img-label">鏡面倒影</div></div>
-        <div class="site-body">
-          <div class="site-name">鏡面倒影</div>
-          <div class="site-desc">鏡子把琥珀廳的每一寸都複製了。現實和倒影邊界消失，你不知道自己站在哪一邊。走著走著會感覺像是在與自己對話——另一個時空的自己，穿著一樣的衣服，踏著一樣的步伐。這是一個美麗的陷阱。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817121757.jpg" alt="細節之美" loading="lazy" decoding="async"><div class="img-label">細節之美</div></div>
-        <div class="site-body">
-          <div class="site-name">細節之美</div>
-          <div class="site-desc">低頭看，高頭看，轉身看——每一個角度都有新的發現。花紋、紋理、陰影，全都精確到毫釐。沙皇的工匠們用盡了所有的技藝，把這個房間打造成了一個沒有缺點的夢。後世的我們只能走進來，嘆氣，然後走出去。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817123613.jpg" alt="光的藝術" loading="lazy" decoding="async"><div class="img-label">光的藝術</div></div>
-        <div class="site-body">
-          <div class="site-name">光的藝術</div>
-          <div class="site-desc">在琥珀廳待得越久，就越明白這不是在看建築，而是在看光的表演。光被琥珀折射、被金箔反射、被鏡面複製，最後交織成了一個無法用言語形容的視覺奇蹟。拍了一百張照片，卻覺得相機根本抓不住這種感覺。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817124538.jpg" alt="華麗至極" loading="lazy" decoding="async"><div class="img-label">華麗至極</div></div>
-        <div class="site-body">
-          <div class="site-name">華麗至極</div>
-          <div class="site-desc">已經沒有詞彙可以形容了。華麗、奢華、璀璨——所有的形容詞都顯得蒼白。走在其中，你會被迫承認人類設計美的極限就在這裡。過了這道門，再多的黃金、再複雜的花紋都是多餘的。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817125517.jpg" alt="皇家氣度" loading="lazy" decoding="async"><div class="img-label">皇家氣度</div></div>
-        <div class="site-body">
-          <div class="site-name">皇家氣度</div>
-          <div class="site-desc">這間房間本身就是一個宣言：我有無限的財富，無限的技藝，無限的想像力。每一件擺設、每一個角落都在說著同一句話。站在這裡，你會感覺自己變得很小——不是因為房間大，而是因為這種規模的奢華本身就是一種壓迫。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_132157.jpg" alt="中午陽光" loading="lazy" decoding="async"><div class="img-label">中午陽光</div></div>
-        <div class="site-body">
-          <div class="site-name">中午陽光</div>
-          <div class="site-desc">中午的陽光從窗戶斜斜地射進來，把琥珀廳又打亮了一次。這時的光線最無情——它把每一粒灰塵、每一條裂縫都暴露出來。但就算在這樣的日光下，這間房間還是美得令人窒息。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181239.jpg" alt="午後寧靜" loading="lazy" decoding="async"><div class="img-label">午後寧靜</div></div>
-        <div class="site-body">
-          <div class="site-name">午後寧靜</div>
-          <div class="site-desc">下午三點多，遊客少了一些。琥珀廳終於有了呼吸的空間。光線變得更柔和，金色不再刺眼，反而有種溫暖的懷舊感。在這樣的時刻駐足，你會開始想像沙皇的妻子在這裡走過時，她看到的是什麼樣的世界。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181553.jpg" alt="廳堂全景" loading="lazy" decoding="async"><div class="img-label">廳堂全景</div></div>
-        <div class="site-body">
-          <div class="site-name">廳堂全景</div>
-          <div class="site-desc">走到廳堂中央，轉身一圈，看四面八方都是同樣的金色。頭頂、腳下、左邊、右邊——沒有一處讓眼睛可以休息的地方。這種全方位的奢華最後變成了一種暴力，一種精神上的轟炸。但也正因為這樣，才會讓人永遠記住。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181622.jpg" alt="光影層次" loading="lazy" decoding="async"><div class="img-label">光影層次</div></div>
-        <div class="site-body">
-          <div class="site-name">光影層次</div>
-          <div class="site-desc">即使在同一時刻，光線也分層。有直射進來的陽光、有反射的光、有被吸收後再發出的光。每一層光都帶著不同的顏色和溫度。你開始明白，琥珀廳之所以美，不是因為材料貴，而是因為光在它上面的舞蹈。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_181930.jpg" alt="雕刻藝術" loading="lazy" decoding="async"><div class="img-label">雕刻藝術</div></div>
-        <div class="site-body">
-          <div class="site-name">雕刻藝術</div>
-          <div class="site-desc">靠近一個雕刻的人物，才看清楚它的五官多麼精細。琥珀硬度高，很難雕刻，所以每一刀都得精準。工匠花了幾天時間才完成這一個臉，現在只有我花幾秒時間看它。這種時間的浪費，在現代社會是不可想像的。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182046.jpg" alt="色彩層疊" loading="lazy" decoding="async"><div class="img-label">色彩層疊</div></div>
-        <div class="site-body">
-          <div class="site-name">色彩層疊</div>
-          <div class="site-desc">琥珀本身就帶著顏色——淺的、深的、透明的、混濁的。工匠選用這些天然顏色來組成圖案，讓色彩自然層疊。現在的我們可以用數位方式做出一樣的效果，但永遠趕不上這種手工的温度。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182201.jpg" alt="纹理細緻" loading="lazy" decoding="async"><div class="img-label">纹理細緻</div></div>
-        <div class="site-body">
-          <div class="site-name">纹理細緻</div>
-          <div class="site-desc">用手指輕輕摸著牆面（雖然導遊不太希望你這樣做），能感受到琥珀表面的纹理。不是光滑的、不是粗糙的，而是有生命的——每一條線、每一個凹陷都在說著工匠的心情。摸著摸著，時間好像反向流動了。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182403.jpg" alt="黃金點綴" loading="lazy" decoding="async"><div class="img-label">黃金點綴</div></div>
-        <div class="site-body">
-          <div class="site-name">黃金點綴</div>
-          <div class="site-desc">琥珀已經很貴了，沙皇還不滿足，非要在上面嵌黃金。那些金色的線條、金色的框、金色的裝飾品，把琥珀的溫暖襯托得更加柔和。黃金在這裡不是為了顯富，而是為了服侍琥珀的美。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_182606.jpg" alt="廳內深處" loading="lazy" decoding="async"><div class="img-label">廳內深處</div></div>
-        <div class="site-body">
-          <div class="site-name">廳內深處</div>
-          <div class="site-desc">走往房間深處，光線變得更複雜。遠處的門框被金光包圍，近處的琥珀被陽光穿透。深淺、遠近、明暗——所有的對比都在這一個房間裡完成。你開始明白為什麼這個房間被稱為「琥珀廳」，而不是「琥珀房間」——它是一個廳堂、一個宣言、一個時代的化身。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_204121.jpg" alt="傍晚余暉" loading="lazy" decoding="async"><div class="img-label">傍晚余暉</div></div>
-        <div class="site-body">
-          <div class="site-name">傍晚余暉</div>
-          <div class="site-desc">傍晚時分，陽光開始偏紅。琥珀廳在這種光線下變成了另一個樣子——不再是冰冷的皇家奢華，而是溫暖的、快要消失的、充滿懷舊感的。這可能是一天中最柔和的時刻，也是最容易讓人流淚的時刻。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_211812.jpg" alt="夜幕琥珀廳" loading="lazy" decoding="async"><div class="img-label">夜幕琥珀廳</div></div>
-        <div class="site-body">
-          <div class="site-name">夜幕琥珀廳</div>
-          <div class="site-desc">晚上，琥珀廳被人工照亮。這種燈光不像自然光那麼溫暖，但有一種舞台的感覺——像是在看一個永不謝幕的表演。在人工光下，琥珀的顏色變得更深，金色變得更亮。這不是沙皇時代看到的琥珀廳，但也有它自己的美。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_211923.jpg" alt="燈火璀璨" loading="lazy" decoding="async"><div class="img-label">燈火璀璨</div></div>
-        <div class="site-body">
-          <div class="site-name">燈火璀璨</div>
-          <div class="site-desc">城市的夜燈亮了起來。從琥珀廳往外看，聖彼得堡的河畔被燈光裝點成了一個夢幻世界。一個房間的奢華和一座城市的燈火相遇，時代與時代對話。站在這裡，過去和現在同時存在。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_212734.jpg" alt="夜間寧靜" loading="lazy" decoding="async"><div class="img-label">夜間寧靜</div></div>
-        <div class="site-body">
-          <div class="site-name">夜間寧靜</div>
-          <div class="site-desc">晚上十一點，琥珀廳終於要關門了。白天那種被遊客包圍的喧囂消失了，只剩下守衛和我。在這樣安靜的時刻，你才真正能感受到這個房間想要說什麼。它說的不是奢華、不是權力，而是時間。時間把所有的東西都變成了回憶。</div>
-        </div>
-      </div>
-      <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG_20260829_212816.jpg" alt="最後一眼" loading="lazy" decoding="async"><div class="img-label">最後一眼</div></div>
-        <div class="site-body">
-          <div class="site-name">最後一眼</div>
-          <div class="site-desc">走出琥珀廳時，回頭看了一眼。金色在夜裡更加深沉，像是在沉睡。明天太陽升起時它會再次甦醒，但那時的我已經走遠了。帶不走這個房間，只能帶著這份記憶。有些美，註定只能看一次，永遠看不夠。</div>
-        </div>
-      </div>
       <div class="site-card">
         <div class="site-img photo"><img src="../photos/baikal-rail/day15/IMG20260817154352.jpg" alt="莫斯科日落" loading="lazy" decoding="async"><div class="img-label">莫斯科日落</div></div>
         <div class="site-body">
@@ -2516,10 +2466,10 @@
         </div>
       </div>
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day18/tsaritsyno-reserve.jpg" alt="察里津諾自然保護區" loading="lazy" decoding="async"><div class="img-label">察里津諾自然保護區</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day18/tsaritsyno-reserve.jpg" alt="察里津諾宮園與博物館保護區" loading="lazy" decoding="async"><div class="img-label">察里津諾宮園與博物館保護區</div></div>
         <div class="site-body">
-          <div class="site-name">察里津諾自然保護區</div>
-          <div class="site-desc">俄羅斯大型哥德式宮廷建築群，與葉卡捷琳娜二世相關。</div>
+          <div class="site-name">察里津諾宮園與博物館保護區</div>
+          <div class="site-desc">察里津諾位於莫斯科南部，是結合宮殿建築、歷史展覽與景觀公園的博物館保護區。18 世紀俄羅斯女皇葉卡捷琳娜二世（凱薩琳大帝）為紀念俄土戰爭的勝利，於 1775 年購得此地並下令興建這座近郊皇家居所。其紅磚、白石裝飾與尖拱構成鮮明的俄羅斯哥德復興風格，深刻反映了當時帝國的政治與文化野心。儘管因種種複雜因素未能於女皇在世時完工，但這座未能完成的皇家遺產在現代經過重修與研究，已被廣泛探討並賦予重要的學術文化價值，如今成為展示宮廷建築與地方歷史的重要文化園區。</div>
         </div>
       </div>
     </div>
@@ -2538,24 +2488,24 @@
     <div class="extra-tip extra-tip--meta">航班：SVO/PEK CA754 17:30-06:00+1　|　餐食：早：飯店內／午：俄式料理／晚：機上簡餐</div>
     <div class="sites-grid">
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day19/izmailovo-park-downloaded.jpg" alt="伊茲麥洛夫公園" loading="lazy" decoding="async"><div class="img-label">伊茲麥洛夫公園</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day19/izmailovo-park-downloaded.jpg" alt="伊茲麥洛沃公園" loading="lazy" decoding="async"><div class="img-label">伊茲麥洛沃公園</div></div>
         <div class="site-body">
-          <div class="site-name">伊茲麥洛夫公園</div>
-          <div class="site-desc">莫斯科大型自然公園，周邊有市集與蘇聯時期建築記憶。</div>
+          <div class="site-name">伊茲麥洛沃公園</div>
+          <div class="site-desc">伊茲麥洛沃公園是莫斯科東部的大型城市綠地，以林地、湖泊與休閒步道構成廣闊的自然空間，呈現俄羅斯首都在歷史街區之外的城市公園景觀。</div>
         </div>
       </div>
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day19/izmailovo-market-kremlin-downloaded.jpg" alt="伊茲麥洛夫市集" loading="lazy" decoding="async"><div class="img-label">伊茲麥洛夫市集</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day19/izmailovo-market-kremlin-downloaded.jpg" alt="伊茲麥洛沃市集與克里姆林文化園區" loading="lazy" decoding="async"><div class="img-label">伊茲麥洛沃市集與克里姆林文化園區</div></div>
         <div class="site-body">
-          <div class="site-name">伊茲麥洛夫市集</div>
-          <div class="site-desc">以俄羅斯娃娃、古董、手工藝品與紀念品聞名。</div>
+          <div class="site-name">伊茲麥洛沃市集與克里姆林文化園區</div>
+          <div class="site-desc">伊茲麥洛沃市集匯集俄羅斯套娃、傳統工藝品、古董與各式紀念品，鄰近色彩鮮明的伊茲麥洛沃克里姆林文化園區，是認識俄羅斯民間藝術與市集文化的熱門地點。</div>
         </div>
       </div>
       <div class="site-card">
         <div class="site-img photo"><img src="../photos/baikal-rail/day19/sparrow-hills-viewpoint.jpg" alt="麻雀山觀景台" loading="lazy" decoding="async"><div class="img-label">麻雀山觀景台</div></div>
         <div class="site-body">
           <div class="site-name">麻雀山觀景台</div>
-          <div class="site-desc">莫斯科市區制高點，可眺望莫斯科河與城市天際線。</div>
+          <div class="site-desc">麻雀山位於莫斯科河右岸丘陵地帶，是俯瞰首都市區的重要觀景位置。站在觀景台上，可眺望莫斯科河、體育場與遠方城市天際線，閱讀河谷地形與都市空間的層次。</div>
         </div>
       </div>
     </div>
@@ -2574,10 +2524,10 @@
     <div class="extra-tip extra-tip--meta">航班：PEK/TPE CA185 08:25-11:40　|　餐食：早：機上簡餐／午：※／晚：※</div>
     <div class="sites-grid sites-grid--solo">
       <div class="site-card">
-        <div class="site-img photo"><img src="../photos/baikal-rail/day20/return-flight.jpg" alt="返抵台北" loading="lazy" decoding="async"><div class="img-label">返抵台北</div></div>
+        <div class="site-img photo"><img src="../photos/baikal-rail/day20/return-flight.jpg" alt="返程航班" loading="lazy" decoding="async"><div class="img-label">返程航班</div></div>
         <div class="site-body">
-          <div class="site-name">返抵台北</div>
-          <div class="site-desc">抵達北京後轉機返回台北，結束蒙古、貝加爾湖、莫斯科與聖彼得堡的 20 日鐵道旅程。</div>
+          <div class="site-name">返程航班</div>
+          <div class="site-desc">旅程由莫斯科返航，依實際航班在北京轉機後返回台北，為蒙古、貝加爾湖、西伯利亞、聖彼得堡與莫斯科的二十日行程畫下句點。跨越草原、湖泊、鐵路與帝國古都的地理長線，也在返抵台灣後成為完整的旅行紀錄。</div>
         </div>
       </div>
     </div>
