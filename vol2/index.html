@@ -107,6 +107,18 @@
             animation: driftFar 90s ease-in-out infinite alternate;
         }
 
+        /* 地平線光帶：介於遠山與中景之間，極淡、幾不可見，
+           暗示畫面之外還有更遼闊的天地在延伸（Improvement 1） */
+        .hz-horizon {
+            top: 55%;
+            height: 10%;
+            background: linear-gradient(180deg,
+                rgba(234, 232, 226, 0.05) 0%,
+                rgba(200, 162, 102, 0.16) 50%,
+                rgba(234, 232, 226, 0.04) 100%);
+            filter: blur(30px);
+        }
+
         /* 峽灣切口：兩座山之間透出的一道極淡光帶，暗示一道峽灣入口 */
         .hz-fjord {
             bottom: 20%;
@@ -126,6 +138,22 @@
             clip-path: polygon(0% 100%, 0% 70%, 12% 45%, 24% 66%, 36% 38%, 48% 62%, 58% 20%, 70% 58%, 82% 40%, 94% 64%, 100% 52%, 100% 100%);
             animation: driftNear 65s ease-in-out infinite alternate;
         }
+
+        /* 標誌性主峰：全站唯一較有輪廓的符號級圖形——三峰剪影，
+           峰頂鑲一線晨光，是離開頁面後仍會留下的「一個畫面」（Improvement 2） */
+        .hz-signature-peak {
+            bottom: 16%;
+            height: 30%;
+            opacity: 0.6;
+            background: linear-gradient(180deg,
+                rgba(200, 162, 102, 0.42) 0%,
+                rgba(200, 162, 102, 0.08) 9%,
+                rgba(8, 22, 34, 0.85) 20%,
+                rgba(8, 22, 34, 0.95) 100%);
+            clip-path: polygon(0% 100%, 26% 42%, 38% 58%, 50% 10%, 62% 56%, 76% 36%, 100% 100%);
+            animation: peakGlow 14s ease-in-out infinite alternate;
+        }
+        .hero-bg > .hz-signature-peak { left: 18%; right: 18%; }
 
         /* 低雲霧：沿地平線飄移的柔霧 */
         .hz-mist--far {
@@ -149,6 +177,10 @@
             from { opacity: 0.55; transform: scale(1); }
             to   { opacity: 0.9;  transform: scale(1.05); }
         }
+        @keyframes peakGlow {
+            from { opacity: 0.52; }
+            to   { opacity: 0.68; }
+        }
         @keyframes driftFar {
             from { transform: translateX(-2.5%); }
             to   { transform: translateX(2.5%); }
@@ -158,7 +190,7 @@
             to   { transform: translateX(-3.5%); }
         }
         @media (prefers-reduced-motion: reduce) {
-            .hz-glow, .hz-mountains--far, .hz-mountains--mid, .hz-mist--far, .hz-mist--near {
+            .hz-glow, .hz-mountains--far, .hz-mountains--mid, .hz-mist--far, .hz-mist--near, .hz-signature-peak {
                 animation: none;
             }
         }
@@ -376,8 +408,10 @@
         <div class="hero-bg" aria-hidden="true">
             <div class="hz-glow"></div>
             <div class="hz-mountains--far"></div>
+            <div class="hz-horizon"></div>
             <div class="hz-fjord"></div>
             <div class="hz-mist--far"></div>
+            <div class="hz-signature-peak"></div>
             <div class="hz-mountains--mid"></div>
             <div class="hz-mist--near"></div>
         </div>
