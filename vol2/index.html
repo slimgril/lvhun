@@ -150,7 +150,7 @@
                 rgba(200, 162, 102, 0.08) 9%,
                 rgba(8, 22, 34, 0.85) 20%,
                 rgba(8, 22, 34, 0.95) 100%);
-            clip-path: polygon(0% 100%, 26% 42%, 38% 58%, 50% 10%, 62% 56%, 76% 36%, 100% 100%);
+            clip-path: url(#mountain-clip);
             animation: peakGlow 14s ease-in-out infinite alternate;
         }
         .hero-bg > .hz-signature-peak { left: 22%; right: 22%; }
@@ -216,6 +216,30 @@
             font-family: 'Noto Serif TC', serif;
             line-height: 1.1;
             text-shadow: 0 0 40px rgba(200, 162, 102, 0.25);
+        }
+
+        /* 標題下的地平線：緊貼「漸見」的一道實體光線，
+           比背景大氣層的地平線光帶更清楚可辨 */
+        .title-horizon {
+            position: relative;
+            width: 280px;
+            max-width: 55%;
+            height: 1px;
+            margin: 0 auto 44px;
+            background: linear-gradient(90deg,
+                rgba(234, 232, 226, 0) 0%,
+                rgba(200, 162, 102, 0.85) 22%,
+                rgba(234, 232, 226, 0.95) 50%,
+                rgba(200, 162, 102, 0.85) 78%,
+                rgba(234, 232, 226, 0) 100%);
+        }
+        .title-horizon::after {
+            content: '';
+            position: absolute;
+            inset: -5px 0;
+            background: inherit;
+            filter: blur(6px);
+            opacity: 0.65;
         }
 
         .hero-subtitle {
@@ -386,6 +410,20 @@
     </style>
 </head>
 <body>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <clipPath id="mountain-clip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,1
+                    C 0.06,0.70 0.14,0.50 0.24,0.46
+                    C 0.30,0.44 0.34,0.52 0.39,0.57
+                    C 0.44,0.62 0.46,0.24 0.50,0.15
+                    C 0.54,0.24 0.56,0.50 0.61,0.56
+                    C 0.66,0.50 0.70,0.40 0.77,0.37
+                    C 0.86,0.52 0.94,0.78 1,1
+                    Z" />
+            </clipPath>
+        </defs>
+    </svg>
     <header class="header">
         <button style="background: none; border: none; color: var(--morning-gold); font-size: 1.5rem; cursor: pointer;">←</button>
         <h1 class="header-title">第二卷《漸見》— 旅魂</h1>
@@ -417,6 +455,7 @@
         </div>
         <div class="hero-content">
             <h2 class="hero-title">漸見</h2>
+            <div class="title-horizon" aria-hidden="true"></div>
             <p class="hero-subtitle">
                 當世界逐漸展開，<br>我開始學會觀看。
             </p>
