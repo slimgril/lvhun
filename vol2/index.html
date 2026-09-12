@@ -11,10 +11,18 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --fjord-deep: #13324A;
+            --ocean-teal: #185C63;
+            --morning-gold: #C8A266;
+            --mist-white: #EAE8E2;
+            --abyss: #0A1E2E;
+        }
+
         body {
             font-family: 'Noto Serif TC', 'Noto Sans TC', serif;
-            background: linear-gradient(135deg, #1a4d3e 0%, #0d2818 100%);
-            color: #e8e4df;
+            background: linear-gradient(165deg, var(--abyss) 0%, var(--fjord-deep) 55%, var(--ocean-teal) 100%);
+            color: var(--mist-white);
             overflow-x: hidden;
         }
 
@@ -23,8 +31,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 40px;
-            background: rgba(13, 40, 24, 0.9);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+            background: rgba(10, 30, 46, 0.9);
+            border-bottom: 1px solid rgba(200, 162, 102, 0.2);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -34,88 +42,163 @@
             font-size: 1.2rem;
             font-weight: 500;
             letter-spacing: 2px;
-            color: #c9a962;
+            color: var(--morning-gold);
         }
 
         .header-menu {
             font-size: 1.5rem;
             cursor: pointer;
-            color: #c9a962;
+            color: var(--morning-gold);
         }
 
         .breadcrumb {
             padding: 20px 40px;
             font-size: 0.9rem;
-            color: #8a8580;
+            color: #8a8f95;
             letter-spacing: 1px;
-            background: rgba(13, 40, 24, 0.6);
-            border-bottom: 1px solid rgba(201, 169, 98, 0.1);
+            background: rgba(10, 30, 46, 0.6);
+            border-bottom: 1px solid rgba(200, 162, 102, 0.1);
         }
 
         .breadcrumb span {
             margin: 0 12px;
         }
 
+        /* ── HERO — cinematic horizon ── */
         .hero {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 70vh;
-            position: relative;
+            min-height: 86vh;
             padding: 80px 40px;
             text-align: center;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 30%, rgba(24, 92, 99, 0.35) 0%, rgba(10, 30, 46, 0) 60%),
+                        linear-gradient(180deg, var(--abyss) 0%, var(--fjord-deep) 48%, #0d2839 100%);
         }
 
-        .hero::before {
-            content: '';
+        .hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(ellipse at center, rgba(20,70,55,0.2) 0%, rgba(13,40,24,0.5) 100%);
+            inset: 0;
+            z-index: 0;
             pointer-events: none;
+            overflow: hidden;
+        }
+
+        .hero-bg > div { position: absolute; left: -8%; right: -8%; }
+
+        /* 晨光：地平線上緩慢呼吸的暖金色光暈 */
+        .hz-glow {
+            top: 38%;
+            height: 46%;
+            background: radial-gradient(ellipse 55% 100% at 50% 55%, rgba(200, 162, 102, 0.30) 0%, rgba(200, 162, 102, 0) 68%);
+            animation: breathe 11s ease-in-out infinite alternate;
+        }
+
+        /* 遠山：最淡、最遠，帶一點藍霧 */
+        .hz-mountains--far {
+            bottom: 22%;
+            height: 30%;
+            opacity: 0.22;
+            background: var(--ocean-teal);
+            filter: blur(1.5px);
+            clip-path: polygon(0% 100%, 0% 62%, 9% 48%, 19% 60%, 29% 34%, 41% 55%, 52% 30%, 64% 52%, 76% 36%, 88% 58%, 100% 44%, 100% 100%);
+            animation: driftFar 90s ease-in-out infinite alternate;
+        }
+
+        /* 峽灣切口：兩座山之間透出的一道極淡光帶，暗示一道峽灣入口 */
+        .hz-fjord {
+            bottom: 20%;
+            height: 34%;
+            opacity: 0.14;
+            background: linear-gradient(180deg, var(--mist-white) 0%, rgba(234, 232, 226, 0) 100%);
+            clip-path: polygon(46% 100%, 50% 20%, 54% 100%);
+            filter: blur(2px);
+        }
+
+        /* 近山：較深、較清楚的稜線 */
+        .hz-mountains--mid {
+            bottom: 0%;
+            height: 26%;
+            opacity: 0.55;
+            background: #0a2130;
+            clip-path: polygon(0% 100%, 0% 70%, 12% 45%, 24% 66%, 36% 38%, 48% 62%, 58% 20%, 70% 58%, 82% 40%, 94% 64%, 100% 52%, 100% 100%);
+            animation: driftNear 65s ease-in-out infinite alternate;
+        }
+
+        /* 低雲霧：沿地平線飄移的柔霧 */
+        .hz-mist--far {
+            top: 46%;
+            height: 22%;
+            background: radial-gradient(ellipse 60% 100% at 30% 50%, rgba(234, 232, 226, 0.10) 0%, rgba(234, 232, 226, 0) 70%),
+                        radial-gradient(ellipse 50% 100% at 75% 50%, rgba(234, 232, 226, 0.08) 0%, rgba(234, 232, 226, 0) 70%);
+            filter: blur(14px);
+            animation: driftFar 110s ease-in-out infinite alternate;
+        }
+
+        .hz-mist--near {
+            bottom: 8%;
+            height: 20%;
+            background: radial-gradient(ellipse 55% 100% at 60% 60%, rgba(234, 232, 226, 0.09) 0%, rgba(234, 232, 226, 0) 70%);
+            filter: blur(18px);
+            animation: driftNear 75s ease-in-out infinite alternate;
+        }
+
+        @keyframes breathe {
+            from { opacity: 0.55; transform: scale(1); }
+            to   { opacity: 0.9;  transform: scale(1.05); }
+        }
+        @keyframes driftFar {
+            from { transform: translateX(-2.5%); }
+            to   { transform: translateX(2.5%); }
+        }
+        @keyframes driftNear {
+            from { transform: translateX(3%); }
+            to   { transform: translateX(-3.5%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .hz-glow, .hz-mountains--far, .hz-mountains--mid, .hz-mist--far, .hz-mist--near {
+                animation: none;
+            }
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
             max-width: 800px;
-            animation: fadeIn 1s ease-out;
+            animation: fadeIn 1.4s ease-out;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; transform: translateY(8px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         .hero-title {
-            font-size: 5rem;
+            font-size: 5.4rem;
             font-weight: 300;
-            letter-spacing: 15px;
-            margin-bottom: 20px;
-            color: #e8e4df;
+            letter-spacing: 18px;
+            margin-bottom: 28px;
+            color: var(--mist-white);
             font-family: 'Noto Serif TC', serif;
             line-height: 1.1;
+            text-shadow: 0 0 40px rgba(200, 162, 102, 0.25);
         }
 
         .hero-subtitle {
-            font-size: 1.3rem;
-            color: #a8a09a;
-            letter-spacing: 3px;
-            line-height: 1.8;
-            margin-bottom: 60px;
+            font-size: 1.25rem;
+            color: rgba(234, 232, 226, 0.78);
+            letter-spacing: 2.5px;
+            line-height: 2;
+            margin-bottom: 64px;
         }
 
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 64px;
         }
 
         .stat-item {
@@ -124,7 +207,7 @@
 
         .stat-number {
             font-size: 3.5rem;
-            color: #c9a962;
+            color: var(--morning-gold);
             font-weight: 300;
             margin-bottom: 10px;
             letter-spacing: 3px;
@@ -132,12 +215,12 @@
 
         .stat-label {
             font-size: 0.95rem;
-            color: #a8a09a;
+            color: rgba(234, 232, 226, 0.6);
             letter-spacing: 2px;
         }
 
         .placeholder {
-            color: #665533;
+            color: rgba(200, 162, 102, 0.55);
             font-style: italic;
         }
 
@@ -145,25 +228,26 @@
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            border: 2px solid #c9a962;
+            border: 2px solid var(--morning-gold);
             border-radius: 50px;
             padding: 12px 40px;
-            color: #c9a962;
+            color: var(--morning-gold);
             text-decoration: none;
             font-size: 0.95rem;
             letter-spacing: 2px;
             transition: all 0.3s ease;
             cursor: pointer;
+            background: rgba(10, 30, 46, 0.2);
         }
 
         .scroll-button:hover {
-            background: rgba(201, 169, 98, 0.1);
+            background: rgba(200, 162, 102, 0.12);
         }
 
         .scroll-button svg {
             width: 16px;
             height: 16px;
-            stroke: #c9a962;
+            stroke: var(--morning-gold);
             fill: none;
             stroke-width: 2;
         }
@@ -174,7 +258,7 @@
 
         .section-title {
             font-size: 2rem;
-            color: #c9a962;
+            color: var(--morning-gold);
             margin-bottom: 40px;
             letter-spacing: 2px;
             text-align: center;
@@ -196,10 +280,10 @@
         }
 
         .trip-card {
-            border: 2px solid rgba(201, 169, 98, 0.3);
+            border: 2px solid rgba(200, 162, 102, 0.3);
             border-radius: 20px;
             padding: 30px;
-            background: rgba(26, 77, 62, 0.4);
+            background: rgba(19, 50, 74, 0.4);
             transition: all 0.3s ease;
             cursor: pointer;
             text-decoration: none;
@@ -209,14 +293,14 @@
         }
 
         .trip-card:hover {
-            border-color: #c9a962;
-            background: rgba(26, 77, 62, 0.6);
+            border-color: var(--morning-gold);
+            background: rgba(24, 92, 99, 0.35);
             transform: translateY(-5px);
         }
 
         .trip-name {
             font-size: 1.3rem;
-            color: #c9a962;
+            color: var(--morning-gold);
             margin-bottom: 12px;
             letter-spacing: 2px;
         }
@@ -229,7 +313,7 @@
 
         .trip-status {
             font-size: 0.85rem;
-            color: #665533;
+            color: rgba(200, 162, 102, 0.55);
             margin-top: 12px;
             font-style: italic;
         }
@@ -238,7 +322,7 @@
             padding: 40px;
             text-align: center;
             color: #8a8580;
-            border-top: 1px solid rgba(201, 169, 98, 0.1);
+            border-top: 1px solid rgba(200, 162, 102, 0.1);
         }
 
         .footer-nav {
@@ -249,7 +333,7 @@
         }
 
         .footer-nav a {
-            color: #c9a962;
+            color: var(--morning-gold);
             text-decoration: none;
             letter-spacing: 1px;
             transition: all 0.3s ease;
@@ -260,44 +344,24 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title {
-                font-size: 3rem;
-                letter-spacing: 8px;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .header {
-                padding: 15px 20px;
-            }
-
-            .breadcrumb {
-                padding: 15px 20px;
-                font-size: 0.8rem;
-            }
-
-            .hero {
-                padding: 40px 20px;
-                min-height: auto;
-            }
+            .hero { min-height: auto; padding: 60px 20px; }
+            .hero-title { font-size: 3rem; letter-spacing: 9px; }
+            .hero-subtitle { font-size: 1rem; letter-spacing: 1.5px; }
+            .stat-number { font-size: 2.5rem; }
+            .header { padding: 15px 20px; }
+            .breadcrumb { padding: 15px 20px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <button style="background: none; border: none; color: #c9a962; font-size: 1.5rem; cursor: pointer;">←</button>
+        <button style="background: none; border: none; color: var(--morning-gold); font-size: 1.5rem; cursor: pointer;">←</button>
         <h1 class="header-title">第二卷《漸見》— 旅魂</h1>
         <div class="header-menu">⋯</div>
     </header>
 
     <nav class="breadcrumb">
-        <span style="color: #c9a962;">旅魂</span>
+        <span style="color: var(--morning-gold);">旅魂</span>
         <span>|</span>
         <span>第二卷</span>
         <span>|</span>
@@ -309,10 +373,18 @@
     </nav>
 
     <section class="hero">
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hz-glow"></div>
+            <div class="hz-mountains--far"></div>
+            <div class="hz-fjord"></div>
+            <div class="hz-mist--far"></div>
+            <div class="hz-mountains--mid"></div>
+            <div class="hz-mist--near"></div>
+        </div>
         <div class="hero-content">
             <h2 class="hero-title">漸見</h2>
             <p class="hero-subtitle">
-                <span class="placeholder">[副標題待定]</span>
+                當世界逐漸展開，<br>我開始學會觀看。
             </p>
 
             <div class="stats">
