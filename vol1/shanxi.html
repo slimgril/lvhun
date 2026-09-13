@@ -2199,6 +2199,15 @@
       btn.textContent = opening ? '收合 ▴' : '展開更多 ▾';
       btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
       if (!opening && !reduceMotion()) desc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      /* 彩蛋骨架：完全展開瞬間，若卡片 data-egg-type 不是 none 就觸發驚喜 */
+      var eggCard = desc.closest('.site-card');
+      if (eggCard) {
+        if (opening && eggCard.dataset.eggType && eggCard.dataset.eggType !== 'none') {
+          eggCard.classList.add('has-surprise');
+        } else if (!opening) {
+          eggCard.classList.remove('has-surprise');
+        }
+      }
     });
 
     desc.classList.add('is-collapsed');
@@ -2234,7 +2243,17 @@
     /* 長文摺疊套用到全站所有描述（照片卡也適用）；
        未超過三行者不掛載，不會多出任何按鈕。 */
     var descs = document.querySelectorAll('.site-desc');
-    for (var j = 0; j < descs.length; j++) fold(descs[j]);
+    for (var j = 0; j < descs.length; j++) {
+      /* 彩蛋骨架：每張卡片預設補上 data-egg-type="none" / data-egg-source=""，
+         之後要放彩蛋時，直接在該卡片的 .site-card 上手動改成
+         data-egg-type="animation" 或 "surprise-photo"，並填 data-egg-source 即可。 */
+      var eggCard = descs[j].closest('.site-card');
+      if (eggCard) {
+        if (eggCard.dataset.eggType === undefined) eggCard.dataset.eggType = 'none';
+        if (eggCard.dataset.eggSource === undefined) eggCard.dataset.eggSource = '';
+      }
+      fold(descs[j]);
+    }
     var t;
     window.addEventListener('resize', function () {
       clearTimeout(t);

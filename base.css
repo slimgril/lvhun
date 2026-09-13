@@ -1196,6 +1196,24 @@
     .site-desc--foldable { transition:none; }
   }
 
+  /* ── 彩蛋骨架（Easter Egg Scaffold · 2026-09-13 預埋）──────────────
+     每張 .site-card 都會被 JS 掛上：
+       data-egg-type="none | animation | surprise-photo"（預設 none）
+       data-egg-source=""（未來彩蛋圖片／動畫 JSON／特效名稱的路徑）
+     使用者點「展開更多」完全展開的瞬間，若 data-egg-type 不是 none，
+     JS 會幫該卡片加上 .has-surprise，觸發下面這個基礎微動畫；
+     素材就位後可依 data-egg-type 的值分岔出不同效果（另外加選擇器即可），
+     目前只提供一個通用的「輕彈跳＋金色光暈」當作預設舞台效果。 */
+  .site-card.has-surprise { animation: egg-pop-in 0.6s ease-out; }
+  @keyframes egg-pop-in {
+    0%   { transform:scale(1);    box-shadow:0 0 0 rgba(212,168,67,0); }
+    35%  { transform:scale(1.03); box-shadow:0 0 24px rgba(212,168,67,0.45); }
+    100% { transform:scale(1);    box-shadow:0 0 0 rgba(212,168,67,0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-card.has-surprise { animation:none; }
+  }
+
   /* ═══════════════════════════════════════════════════════════════
      影片 = 獨立內容區塊（不是卡片內容）
      ═══════════════════════════════════════════════════════════════
