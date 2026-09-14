@@ -113,46 +113,9 @@
             font-weight: 300;
             line-height: 1;
             font-family: 'Noto Serif TC', serif;
-            z-index: 1;
-        }
-
-        /* 動態封面（2026-09-14）：停留滿 2 秒才淡入播放，滑過去則維持
-           上面這個純 CSS 的靜態畫面不動——見下方 script 的 IntersectionObserver。
-           使用者提供的影片是完成品，只做原封不動播放，不加任何濾鏡/加工。 */
-        .hero-video-layer {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0;
-            overflow: hidden;
-            border-radius: inherit;
-            transition: opacity 1.2s ease;
-            pointer-events: none;
-        }
-
-        .hero-video-layer.is-active { opacity: 1; }
-
-        .hero-video-layer video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .hero-video-layer::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.35) 100%);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero-video-layer { display: none; }
         }
 
         .hero-title {
-            position: relative;
-            z-index: 2;
             font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: 300;
             letter-spacing: 0.15em;
@@ -163,8 +126,6 @@
         }
 
         .hero-subtitle {
-            position: relative;
-            z-index: 2;
             font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #b8a495;
             line-height: 1.8;
@@ -174,8 +135,6 @@
         }
 
         .stats {
-            position: relative;
-            z-index: 2;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: clamp(20px, 4vw, 50px);
@@ -315,9 +274,6 @@
 
     <section class="hero-section">
         <div class="hero-card">
-            <div class="hero-video-layer" id="heroVideoLayer">
-                <video src="../photos/hero/vol1-embrace.mp4" muted loop playsinline preload="none"></video>
-            </div>
             <h1 class="hero-title">初見</h1>
             <p class="hero-subtitle">
                 這不只是一趟趟腳步的挪移，<br>
@@ -369,45 +325,5 @@
         </div>
         <p>© 2026 旅魂 — 陳文斌的旅途紀行</p>
     </footer>
-
-    <script>
-    /* 動態封面（2026-09-14）：停留滿 2 秒才播放，滑過去維持靜態畫面。
-       尊重 prefers-reduced-motion；影片是完成品，只設 src → play()，不加工。 */
-    (function () {
-        var layer = document.getElementById('heroVideoLayer');
-        if (!layer) return;
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-        var video = layer.querySelector('video');
-        var timer = null;
-        var activated = false;
-
-        function activate() {
-            activated = true;
-            video.preload = 'auto';
-            layer.classList.add('is-active');
-            var p = video.play();
-            if (p && p.catch) p.catch(function () {});
-        }
-
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting && entry.intersectionRatio >= 0.6) {
-                    if (activated) {
-                        var p = video.play();
-                        if (p && p.catch) p.catch(function () {});
-                        return;
-                    }
-                    if (!timer) timer = setTimeout(activate, 2000);
-                } else {
-                    if (timer) { clearTimeout(timer); timer = null; }
-                    if (activated) video.pause();
-                }
-            });
-        }, { threshold: [0, 0.6, 1] });
-
-        io.observe(layer.closest('.hero-card'));
-    })();
-    </script>
 </body>
 </html>
