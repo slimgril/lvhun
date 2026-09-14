@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>關於作者 陳文斌 — 旅魂</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, serif;
+            background: #000000;
+            color: #e8e4df;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px clamp(20px, 5vw, 60px);
+            background: rgba(0, 0, 0, 0.95);
+            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-back {
+            background: none;
+            border: none;
+            color: #d4a574;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .header-title {
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: #d4a574;
+        }
+
+        .page {
+            min-height: calc(100vh - 65px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(50px, 10vh, 100px) clamp(20px, 5vw, 60px);
+        }
+
+        .about-card {
+            max-width: 640px;
+            text-align: center;
+        }
+
+        .portrait {
+            width: 148px;
+            height: 148px;
+            margin: 0 auto clamp(30px, 5vh, 48px);
+            border-radius: 50%;
+            border: 1px solid rgba(212, 165, 116, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            font-weight: 300;
+            color: #d4a574;
+            background: radial-gradient(circle at 35% 30%, rgba(212, 165, 116, 0.12), rgba(0, 0, 0, 0) 70%);
+            font-family: 'Noto Serif TC', serif;
+        }
+
+        .about-label {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            letter-spacing: 0.3em;
+            color: #8a8580;
+            margin-bottom: clamp(15px, 3vh, 24px);
+            text-transform: uppercase;
+        }
+
+        .about-name {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            color: #d4a574;
+            margin-bottom: 14px;
+            font-family: 'Noto Serif TC', Georgia, serif;
+        }
+
+        .about-role {
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            color: #b8a495;
+            letter-spacing: 0.08em;
+            margin-bottom: clamp(30px, 5vh, 48px);
+        }
+
+        .about-bio {
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            line-height: 2;
+            color: #e8e4df;
+            font-weight: 300;
+            text-align: left;
+            margin-bottom: clamp(30px, 5vh, 48px);
+        }
+
+        .about-bio + .about-bio {
+            margin-top: -24px;
+        }
+
+        .about-quote {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: #d4a574;
+            font-style: italic;
+            line-height: 1.9;
+            letter-spacing: 0.03em;
+            padding-top: clamp(24px, 4vh, 36px);
+            border-top: 1px solid rgba(212, 165, 116, 0.15);
+        }
+
+        .continue {
+            margin-top: clamp(50px, 8vh, 80px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .continue-text {
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            color: #8a8580;
+        }
+
+        .continue-arrow {
+            font-size: 1.2rem;
+            color: #8a8580;
+            text-decoration: none;
+            animation: slideDown 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes slideDown {
+            0%, 100% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(8px); opacity: 1; }
+        }
+
+        /* 佔位提示（給使用者編輯用，正式上線前記得移除或替換） */
+        .placeholder-note {
+            margin-top: clamp(40px, 6vh, 60px);
+            font-size: 0.75rem;
+            color: #665f58;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a class="header-back" href="index.html">←</a>
+        <div class="header-title">關於作者 — 旅魂</div>
+        <span style="width:1.5rem;"></span>
+    </header>
+
+    <section class="page">
+        <div class="about-card">
+            <div class="portrait">陳</div>
+
+            <div class="about-label">Author</div>
+            <h1 class="about-name">陳文斌</h1>
+            <p class="about-role">退休後開始的世界旅行 · 旅魂 書寫者</p>
+
+            <p class="about-bio">
+                退休不是句點，而是把日子重新交還給自己的開始。陳文斌用雙腳丈量世界，
+                從山西的黃土高原、波羅的海三小國的海灣風情，到橫越西伯利亞的二十天大鐵路，
+                第一卷《初見》記下了 48 天、4 個目的地、3 個國家的旅途。
+            </p>
+            <p class="about-bio">
+                《旅魂》不是導覽手冊，而是一位旅人用文字與影像，留給自己、也留給未來的
+                一場靈魂淬煉紀錄。第二卷《漸見》正在路上。
+            </p>
+
+            <p class="about-quote">
+                退休不是結束，而是另一種開始。<br>
+                用雙腳丈量世界，用餘生書寫旅途。
+            </p>
+
+            <div class="continue">
+                <span class="continue-text">進入第一卷</span>
+                <a class="continue-arrow" href="vol1/index.html">↓</a>
+            </div>
+
+            <p class="placeholder-note">— 這頁內容是草稿佔位，等你確認文字與照片後再定稿 —</p>
+        </div>
+    </section>
+</body>
+</html>
