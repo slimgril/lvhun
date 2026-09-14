@@ -1,206 +1,417 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>關於作者 陳文斌 — 旅魂</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>旅人 陳文斌 — 旅魂</title>
 
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Noto+Serif+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Noto Serif TC', 'Noto Sans TC', Georgia, serif;
-            background: #000000;
-            color: #e8e4df;
-        }
+<style>
+  :root {
+    --parchment-1: #F6F0E5;
+    --parchment-2: #EFE5D3;
+    --parchment-shadow: #DCCFB3;
+    --ink: #2A221F;
+    --ink-soft: rgba(42, 34, 31, 0.72);
+    --ink-faint: rgba(42, 34, 31, 0.5);
+    --gold: #C5A880;
+    --gold-deep: #A98A5C;
+    --cinnabar: #9B3B2C;
+  }
 
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px clamp(20px, 5vw, 60px);
-            background: rgba(0, 0, 0, 0.95);
-            border-bottom: 1px solid rgba(212, 165, 116, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .header-back {
-            background: none;
-            border: none;
-            color: #d4a574;
-            font-size: 1.5rem;
-            cursor: pointer;
-            text-decoration: none;
-            line-height: 1;
-        }
+  html, body { width: 100%; }
 
-        .header-title {
-            font-size: clamp(0.85rem, 2vw, 1.1rem);
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            color: #d4a574;
-        }
+  body {
+    background:
+      radial-gradient(ellipse at 15% 8%, rgba(255,255,255,0.35), transparent 45%),
+      radial-gradient(ellipse at 90% 95%, rgba(0,0,0,0.06), transparent 55%),
+      linear-gradient(155deg, var(--parchment-1) 0%, var(--parchment-2) 55%, var(--parchment-shadow) 100%);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
 
-        .page {
-            min-height: calc(100vh - 65px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: clamp(50px, 10vh, 100px) clamp(20px, 5vw, 60px);
-        }
+  /* 紙張顆粒紋理：純 CSS/SVG 產生，不依賴外部圖片 */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.05;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
-        .about-card {
-            max-width: 640px;
-            text-align: center;
-        }
+  /* 頁緣暗角，模擬老相簿內頁的氛圍 */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 4;
+    box-shadow: inset 0 0 18vw rgba(42, 34, 31, 0.16);
+  }
 
-        .portrait {
-            width: 148px;
-            height: 148px;
-            margin: 0 auto clamp(30px, 5vh, 48px);
-            border-radius: 50%;
-            border: 1px solid rgba(212, 165, 116, 0.35);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.2rem;
-            font-weight: 300;
-            color: #d4a574;
-            background: radial-gradient(circle at 35% 30%, rgba(212, 165, 116, 0.12), rgba(0, 0, 0, 0) 70%);
-            font-family: 'Noto Serif TC', serif;
-        }
+  .page {
+    position: relative;
+    z-index: 1;
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: clamp(48px, 8vh, 96px) clamp(24px, 6vw, 72px) clamp(80px, 10vh, 140px);
+  }
 
-        .about-label {
-            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
-            letter-spacing: 0.3em;
-            color: #8a8580;
-            margin-bottom: clamp(15px, 3vh, 24px);
-            text-transform: uppercase;
-        }
+  .back-link {
+    display: inline-block;
+    margin-bottom: clamp(20px, 3vh, 32px);
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+  .back-link:hover { color: var(--gold-deep); }
 
-        .about-name {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 300;
-            letter-spacing: 0.1em;
-            color: #d4a574;
-            margin-bottom: 14px;
-            font-family: 'Noto Serif TC', Georgia, serif;
-        }
+  .eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: clamp(40px, 7vh, 72px);
+  }
 
-        .about-role {
-            font-size: clamp(0.9rem, 2vw, 1.05rem);
-            color: #b8a495;
-            letter-spacing: 0.08em;
-            margin-bottom: clamp(30px, 5vh, 48px);
-        }
+  .eyebrow {
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.55em;
+    color: var(--gold-deep);
+    text-transform: uppercase;
+  }
 
-        .about-bio {
-            font-size: clamp(0.95rem, 2vw, 1.05rem);
-            line-height: 2;
-            color: #e8e4df;
-            font-weight: 300;
-            text-align: left;
-            margin-bottom: clamp(30px, 5vh, 48px);
-        }
+  .eyebrow-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    max-width: 340px;
+  }
 
-        .about-bio + .about-bio {
-            margin-top: -24px;
-        }
+  .split {
+    display: flex;
+    align-items: flex-start;
+    gap: clamp(36px, 6vw, 84px);
+  }
 
-        .about-quote {
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
-            color: #d4a574;
-            font-style: italic;
-            line-height: 1.9;
-            letter-spacing: 0.03em;
-            padding-top: clamp(24px, 4vh, 36px);
-            border-top: 1px solid rgba(212, 165, 116, 0.15);
-        }
+  /* ───────────────────────── 左欄：照片預留區 ───────────────────────── */
 
-        .continue {
-            margin-top: clamp(50px, 8vh, 80px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px;
-        }
+  .portrait-col {
+    flex: 0 0 52%;
+    max-width: 52%;
+    position: sticky;
+    top: clamp(40px, 6vh, 80px);
+  }
 
-        .continue-text {
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            color: #8a8580;
-        }
+  .portrait-frame {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    padding: 14px;
+  }
 
-        .continue-arrow {
-            font-size: 1.2rem;
-            color: #8a8580;
-            text-decoration: none;
-            animation: slideDown 2s ease-in-out infinite;
-            cursor: pointer;
-        }
+  .portrait-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid var(--gold);
+    opacity: 0.6;
+  }
 
-        @keyframes slideDown {
-            0%, 100% { transform: translateY(0); opacity: 0.5; }
-            50% { transform: translateY(8px); opacity: 1; }
-        }
+  .portrait-frame::after {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 1px solid var(--gold);
+    opacity: 0.35;
+  }
 
-        /* 佔位提示（給使用者編輯用，正式上線前記得移除或替換） */
-        .placeholder-note {
-            margin-top: clamp(40px, 6vh, 60px);
-            font-size: 0.75rem;
-            color: #665f58;
-            letter-spacing: 0.05em;
-        }
-    </style>
+  .portrait-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(197, 168, 128, 0.25);
+  }
+
+  .portrait-inner img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .portrait-corner {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-color: var(--gold-deep);
+    border-style: solid;
+    border-width: 0;
+    opacity: 0.75;
+  }
+  .portrait-corner.tl { top: 20px; left: 20px; border-top-width: 1.5px; border-left-width: 1.5px; }
+  .portrait-corner.tr { top: 20px; right: 20px; border-top-width: 1.5px; border-right-width: 1.5px; }
+  .portrait-corner.bl { bottom: 20px; left: 20px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
+  .portrait-corner.br { bottom: 20px; right: 20px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+
+  .portrait-caption {
+    width: 100%;
+    margin: 20px auto 0;
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  /* ───────────────────────── 右欄：文案自白區 ───────────────────────── */
+
+  .content-col {
+    flex: 1 1 48%;
+    text-align: left;
+    padding-top: clamp(4px, 1vh, 18px);
+  }
+
+  .kicker-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .guiding-star {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    opacity: 0.8;
+  }
+  .guiding-star svg { width: 100%; height: 100%; display: block; }
+
+  .kicker {
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.5em;
+    color: var(--gold-deep);
+  }
+
+  .traveler-name {
+    margin-top: 18px;
+    font-family: 'Cinzel', 'Noto Serif TC', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.34rem);
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .traveler-role {
+    margin-top: 10px;
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    color: var(--ink-faint);
+  }
+
+  .quote-hero {
+    margin-top: clamp(40px, 6vh, 64px);
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.6;
+    color: var(--ink);
+    max-width: 18em;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: clamp(34px, 5vh, 56px) 0;
+    max-width: 620px;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, var(--gold), transparent); }
+  .divider-line.reverse { background: linear-gradient(to left, var(--gold), transparent); }
+  .divider-mark { color: var(--gold-deep); font-size: 0.85rem; flex: none; }
+
+  .bio p {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1rem, 1.15vw, 1.08rem);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-align: left;
+    margin-bottom: 1.55em;
+    max-width: 42em;
+  }
+
+  .bio .lead-quote {
+    font-size: clamp(1.08rem, 1.25vw, 1.2rem);
+    font-style: italic;
+    color: var(--ink);
+    border-left: 2px solid var(--gold);
+    padding: 0.5em 0 0.5em 1.1em;
+    margin-top: 0.4em;
+    margin-bottom: 2.4em;
+  }
+
+  .bio .verse {
+    font-style: italic;
+    line-height: 2.1;
+    letter-spacing: 0.04em;
+  }
+
+  .bio .accent {
+    color: var(--cinnabar);
+  }
+
+  .bio .closing {
+    margin-top: clamp(24px, 4vh, 40px);
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    color: var(--gold-deep);
+  }
+
+  .bio strong.tag {
+    font-weight: 600;
+    color: var(--cinnabar);
+  }
+
+  .continue-row {
+    margin-top: clamp(36px, 6vh, 56px);
+  }
+
+  .continue-link {
+    font-family: 'EB Garamond', 'Noto Serif TC', serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--gold-deep);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  .continue-link:hover { border-color: var(--gold-deep); }
+
+  /* ───────────────────────── 版面收合 ───────────────────────── */
+
+  @media (max-width: 900px) {
+    .split { flex-direction: column; }
+    .portrait-col {
+      max-width: 380px;
+      width: 100%;
+      margin: 0 auto;
+      flex: none;
+      position: static;
+    }
+    .content-col { width: 100%; }
+    .eyebrow-line { max-width: 140px; }
+  }
+
+  @media (max-width: 480px) {
+    .guiding-star { width: 18px; height: 18px; }
+  }
+</style>
 </head>
 <body>
-    <header class="header">
-        <a class="header-back" href="index.html">←</a>
-        <div class="header-title">關於作者 — 旅魂</div>
-        <span style="width:1.5rem;"></span>
-    </header>
 
-    <section class="page">
-        <div class="about-card">
-            <div class="portrait">陳</div>
+  <div class="page">
 
-            <div class="about-label">Author</div>
-            <h1 class="about-name">陳文斌</h1>
-            <p class="about-role">退休後開始的世界旅行 · 旅魂 書寫者</p>
+    <a class="back-link" href="index.html">← 首頁</a>
 
-            <p class="about-bio">
-                退休不是句點，而是把日子重新交還給自己的開始。陳文斌用雙腳丈量世界，
-                從山西的黃土高原、波羅的海三小國的海灣風情，到橫越西伯利亞的二十天大鐵路，
-                第一卷《初見》記下了 48 天、4 個目的地、3 個國家的旅途。
-            </p>
-            <p class="about-bio">
-                《旅魂》不是導覽手冊，而是一位旅人用文字與影像，留給自己、也留給未來的
-                一場靈魂淬煉紀錄。第二卷《漸見》正在路上。
-            </p>
+    <div class="eyebrow-row">
+      <span class="eyebrow">Traveler</span>
+      <span class="eyebrow-line"></span>
+    </div>
 
-            <p class="about-quote">
-                退休不是結束，而是另一種開始。<br>
-                用雙腳丈量世界，用餘生書寫旅途。
-            </p>
+    <div class="split">
 
-            <div class="continue">
-                <span class="continue-text">進入第一卷</span>
-                <a class="continue-arrow" href="vol1/index.html">↓</a>
-            </div>
-
-            <p class="placeholder-note">— 這頁內容是草稿佔位，等你確認文字與照片後再定稿 —</p>
+      <!-- 左欄：照片預留區 -->
+      <aside class="portrait-col">
+        <div class="portrait-frame">
+          <div class="portrait-inner">
+            <img src="photos/about/bingge-genghis-khan-portrait.png" alt="陳文斌於蒙古烏蘭巴托，成吉思汗騎馬像前躍馬彎弓">
+          </div>
+          <span class="portrait-corner tl"></span>
+          <span class="portrait-corner tr"></span>
+          <span class="portrait-corner bl"></span>
+          <span class="portrait-corner br"></span>
         </div>
-    </section>
+        <p class="portrait-caption">蒙古．烏蘭巴托 — 成吉思汗騎馬像前</p>
+      </aside>
+
+      <!-- 右欄：文案自白區 -->
+      <main class="content-col">
+
+        <div class="kicker-row">
+          <span class="guiding-star" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none">
+              <path d="M50 6 L61 38 L95 38 L67 58 L78 92 L50 71 L22 92 L33 58 L5 38 L39 38 Z"
+                    stroke="#C5A880" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <span class="kicker">旅人</span>
+        </div>
+
+        <h1 class="traveler-name">陳文斌</h1>
+        <p class="traveler-role">退休旅人・書寫者</p>
+
+        <p class="quote-hero">退休不是一段日子的句點，而是用雙腳重獲自由的起點。</p>
+
+        <div class="divider">
+          <span class="divider-line"></span>
+          <span class="divider-mark">✦</span>
+          <span class="divider-line reverse"></span>
+        </div>
+
+        <div class="bio">
+          <p class="lead-quote">「這不是一趟可有可無的移動，而是一場用生命與天地對話的靈魂淬煉。」</p>
+
+          <p>在他的世界裡，大家都叫他「兵哥」。這個源自台語「軍人」的稱號，無比精準地刻劃出他骨子裡那股像軍人般、流著汗水且堅毅不拔的鋼鐵韌性。</p>
+
+          <p class="verse">
+            退休後，<br>
+            他選擇背起行囊。<br>
+            <br>
+            從黃土高原到波羅的海，<br>
+            從蒙古草原到西伯利亞鐵路。<br>
+            <br>
+            他用雙腳重新丈量世界。
+          </p>
+
+          <p>頂天立地是他的態度，去直面未知、去揮霍孤獨。在壯闊的世界面前找回自己最初的眼神，這就是屬於他的軍人本色。</p>
+
+          <p>《旅魂》不是一本按部就班的景點導覽手冊，而是一位鐵漢將靈魂淬煉成文字與影像的生命紀實。</p>
+
+          <p class="closing">── 旅程還在繼續，下一卷，正在路上。</p>
+
+          <div class="continue-row">
+            <a class="continue-link" href="vol1/index.html">進入第一卷 →</a>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
 </body>
 </html>
