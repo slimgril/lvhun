@@ -93,52 +93,27 @@
 
         .hero-card {
             position: relative;
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto 60px;
-            padding: clamp(40px, 6vh, 80px) clamp(30px, 5vw, 60px);
-            background: linear-gradient(135deg, rgba(100, 90, 80, 0.15) 0%, rgba(50, 50, 50, 0.1) 100%);
+            padding: 0;
+            background-image: url('../photos/hero/vol1-cover.jpg');
+            background-size: cover;
+            background-position: center;
+            aspect-ratio: 1672 / 941;
             border: 1px solid rgba(212, 165, 116, 0.15);
             border-radius: 8px;
             overflow: hidden;
         }
 
-        .hero-card::before {
-            content: '壹';
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 120px;
-            color: rgba(212, 165, 116, 0.08);
-            font-weight: 300;
-            line-height: 1;
-            font-family: 'Noto Serif TC', serif;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
-            color: #d4a574;
-            margin-bottom: clamp(15px, 3vh, 30px);
-            font-family: 'Noto Serif TC', Georgia, serif;
-            line-height: 1.1;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            color: #b8a495;
-            line-height: 1.8;
-            letter-spacing: 0.05em;
-            font-weight: 300;
-            margin-bottom: 40px;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: clamp(20px, 4vw, 50px);
-            margin: clamp(40px, 8vh, 60px) 0;
+        /* 靜態封面照片（2026-09-14）：美工提供的完稿圖已內含標題／副標題／
+           數字統計，改用這張圖直接當封面，原本的文字圖層改隱藏，避免跟圖片
+           裡的文字重疊。之前試過動態影片版本有殘影問題，使用者要求換回
+           這張靜態照片，不再用影片。 */
+        .hero-card::before,
+        .hero-card .hero-title,
+        .hero-card .hero-subtitle,
+        .hero-card .stats {
+            display: none;
         }
 
         .stat-item {
