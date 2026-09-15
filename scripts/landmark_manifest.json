@@ -1,0 +1,76 @@
+{
+  "_meta": {
+    "created": "2026-09-15",
+    "purpose": "全站唯一非斌哥 OPPO 手機拍攝的地標示意圖清單（Landmark 資產），全部已確認為斌哥親自或委託尋找的景點鋪陳照片，不是斌哥的個人旅人照。任何任務要修改、搬移、刪除下列任一檔案，或修改它在 vol1/baikal.html 裡對應卡片的文字/位置前，必須先執行 scripts/verify_landmarks.py 確認目前基準狀態，並在動手前得到斌哥或使用者明確同意。",
+    "how_to_verify": "python3 scripts/verify_landmarks.py",
+    "how_these_were_identified": "用 exiftool 讀取 day01~day20 全部圖片的 EXIF Make 欄位，非 OPPO 品牌（Nikon/Sony/Canon/Fujifilm）的共 11 張，逐張核對命名慣例與網頁引用狀態後定案。"
+  },
+  "files": [
+    {
+      "path": "photos/baikal-rail/day03/karakorum-museum-real.jpg",
+      "sha256": "15aca2527cb0d3e168934fa8f685f97b8bfa49295943b3de68b549469bb2d19a",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day07/taltsy-wooden-museum-downloaded.jpg",
+      "sha256": "a25d07c1b3345d4e5df73e0d448047bc4bf26062d7607edf1486a67170a521a6",
+      "expect_referenced_in_html": false,
+      "note": "基準快照時已是孤兒檔（未被任何卡片引用），可能已被同名無後綴版本取代，這是正常基準狀態，不代表新發生的問題，異動前請先跟斌哥/Claude Code 確認用途再處理。"
+    },
+    {
+      "path": "photos/baikal-rail/day07/spasskaya-church-downloaded.jpg",
+      "sha256": "c8aae9e82a968b61241c7a5e474f60a331021d62de5c37f39cd48fba470b54f2",
+      "expect_referenced_in_html": false,
+      "note": "已知孤兒檔：Day06 錯配「斯帕斯卡亞教堂」卡已於 2026-09-15 移除（該圖實為莫斯科克里姆林宮斯帕斯克塔，撞名誤用），圖檔刻意保留但不再引用，這是正常基準狀態，不要因為「未被引用」就判定異常或自作主張補回卡片。"
+    },
+    {
+      "path": "photos/baikal-rail/day07/shaman-rock-landmark-downloaded.jpg",
+      "sha256": "d9319d35375a37f1c6fbb983cc0e6ca055e69156206be60c8cdbe22133ec5452",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day08/burkhan-bay-downloaded.jpg",
+      "sha256": "2a5cd9e7b6f6c0cd0f730ff68ba35b613e9d54e13a329fc9352a101b5ac1d1e4",
+      "expect_referenced_in_html": false,
+      "note": "基準快照時已是孤兒檔（未被任何卡片引用），可能已被同名無後綴版本取代，這是正常基準狀態，不代表新發生的問題，異動前請先跟斌哥/Claude Code 確認用途再處理。"
+    },
+    {
+      "path": "photos/baikal-rail/day14/peterhof-grand-cascade-downloaded.jpg",
+      "sha256": "3a3f37c7ded0ec768b71996ade03720e061f29a9e9d853cd903766203a50d517",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day15/catherine-palace-downloaded.jpg",
+      "sha256": "e6e4bbdb8b06b1f091a6a812fc63ce0c1d94bbcfce472ac7d69f82a05c124d4a",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day15/saint-isaac-cathedral-downloaded.jpeg",
+      "sha256": "3ca9ab7b2edc97e218ef1580c0ab32edd6b08faaa56a0b3404ce2820247edecd",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day16/winter-palace-hermitage-downloaded.jpg",
+      "sha256": "daed881b4857501b7af6907f26b4fe52ac0278bd3ae8ee6643ac160213bd85a2",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day16/st-basil-red-square-downloaded.jpg",
+      "sha256": "891f5afeea8afa21c49fafd92ac95458744dede37a19fee781df4abed859f644",
+      "expect_referenced_in_html": true,
+      "note": ""
+    },
+    {
+      "path": "photos/baikal-rail/day16/kremlin-panorama-downloaded.jpg",
+      "sha256": "0b55218d23f5bdbe577f5112a189cf55ed51574669803e38ddfce90c0951e5bc",
+      "expect_referenced_in_html": true,
+      "note": ""
+    }
+  ]
+}
