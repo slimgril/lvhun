@@ -1037,6 +1037,25 @@
     margin:0;
   }
 
+  /* ── Day Page 內部：景點導覽／旅人實拍紀錄 分節 ── */
+  .section-label {
+    font-size:0.72rem; font-weight:700; letter-spacing:3px;
+    color:var(--gold); text-transform:none; margin:4px 0 10px;
+  }
+  .section-divider {
+    display:flex; align-items:center; gap:16px;
+    margin:26px 0 18px;
+  }
+  .section-divider__line {
+    flex:1; height:1px;
+    background:linear-gradient(90deg, transparent, var(--gold-light), var(--gold), var(--gold-light), transparent);
+  }
+  .section-divider__label {
+    font-size:0.76rem; font-weight:700; letter-spacing:3px;
+    color:var(--gold); white-space:nowrap;
+  }
+  .sites-grid--preview .site-img { opacity:0.96; }
+
   /* ── TIMELINE ROW (for route summary) ── */
   .timeline {
     display:flex; gap:0; overflow-x:auto; padding:20px 0;
