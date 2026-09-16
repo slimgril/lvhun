@@ -15,391 +15,391 @@
   },
   "files": [
     {
-      "path": "photos/baikal-rail/day01/beijing-airport.jpg",
+      "path": "photos/destination-preview/baikal-rail/day01/beijing-airport.jpg",
       "sha256": "20b3eb33443d62dfd536c119cc1a1ed91eb94b6dbedda67bf9a823b2be949cb6",
       "expect_referenced_in_html": true,
       "note": "2026-09-16 歸位：補上 Day01 開場機場卡"
     },
     {
-      "path": "photos/baikal-rail/day02/chinggis-khaan-statue.jpg",
+      "path": "photos/destination-preview/baikal-rail/day02/chinggis-khaan-statue.jpg",
       "sha256": "1843247fa0a3ef94a470bce50fa084da0333d9881693726b3415aae674d66a95",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：同一尊成吉思汗雕像已有3張不同角度卡片（遠景/銅像/近看本體），此為第4張近拍臉部特寫，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day02/genghis-khan-statue.png",
+      "path": "photos/destination-preview/baikal-rail/day02/genghis-khan-statue.png",
       "sha256": "ac6e43710dbb45c1500357c438806d782bcfe3cb3f3e3b62a2f104d160a63ee9",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day02/horseback-riding-landmark.png",
+      "path": "photos/destination-preview/baikal-rail/day02/horseback-riding-landmark.png",
       "sha256": "d7a073f4bcc010962f62a7ea6504decb0667aa217d57b63c8530a59c721530e5",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day02/mongolian-grassland.png",
+      "path": "photos/destination-preview/baikal-rail/day02/mongolian-grassland.png",
       "sha256": "04f35d09d2822bf056b48b7e4fb32bd841142fc1f404bd30fb3abd958304474e",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day02/terelj-camp-panorama.jpg",
+      "path": "photos/destination-preview/baikal-rail/day02/terelj-camp-panorama.jpg",
       "sha256": "3d80cd2870e036dc55ef026dad3110d047d1ae199be251f5819c782d432c1fb9",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day02/terelj-road.png",
+      "path": "photos/destination-preview/baikal-rail/day02/terelj-road.png",
       "sha256": "2a6d72194e01b827d4edb3f6a979186e03bb4692c0fde3c0ad30cb0e67c2cec8",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day02/ulaanbaatar-city-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day02/ulaanbaatar-city-downloaded.jpg",
       "sha256": "0a47e855d49a01de41f3ebebaa8c01b08404341804184883b3dee2bdc0c93964",
       "expect_referenced_in_html": true,
       "note": "2026-09-16 歸位：補上烏蘭巴托藍天大廈卡（原開場卡誤用草原圖，此卡補真正市容）"
     },
     {
-      "path": "photos/baikal-rail/day03/camel-ride.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/camel-ride.jpg",
       "sha256": "0af48adf9642209ed77fc4fe35237bf953d379a62652e630edc8bdb7794048a6",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/dinner-mongolian-song.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/dinner-mongolian-song.jpg",
       "sha256": "a46a807eb122cef2214c97338a4a43cb64198010e0704179443041f59034f5b1",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/dinner-noble-costume.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/dinner-noble-costume.jpg",
       "sha256": "7483d8f10c29fe214e9b2611f2472fdbbfa68f397edc861a8b2a6743db2c40ff",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/erdene-zuu-108-stupas.png",
+      "path": "photos/destination-preview/baikal-rail/day03/erdene-zuu-108-stupas.png",
       "sha256": "3b02de72b4cc1e2c2d0eb228d89714abc58c81625594cb347c486651c0e34c6a",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/erdene-zuu-monastery.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/erdene-zuu-monastery.jpg",
       "sha256": "07eb1ea15dc09344049b956b39386a214e6fbad15a6490f48b88d782a3b02bce",
       "expect_referenced_in_html": true,
       "note": "2026-09-16 歸位：補上額爾德尼召主殿地面視角卡"
     },
     {
-      "path": "photos/baikal-rail/day03/grassland-horsemanship.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/grassland-horsemanship.jpg",
       "sha256": "d6d278cf9eec87a3207c7f577efa9717ce31fc435c423d20eb65b34978f9966f",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/grassland-scenery.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/grassland-scenery.jpg",
       "sha256": "172e061d8bf33e64beddfcfeadad3362593a66f4208c76348687fc00e70e6a6c",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/grassland-song-performance.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/grassland-song-performance.jpg",
       "sha256": "1bcd43c672eb12cfb84f892c36c1a3b5941fb2b18493b4469ac5ed272a0842f7",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/karakorum-museum-real.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/karakorum-museum-real.jpg",
       "sha256": "15aca2527cb0d3e168934fa8f685f97b8bfa49295943b3de68b549469bb2d19a",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/kharkhorin-ancient-city-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day03/kharkhorin-ancient-city-downloaded.jpg",
       "sha256": "c6ab7654d72dbef3e4491407e72860ce5c8785cf4ea501b2f88a3dd1c27d03c8",
       "expect_referenced_in_html": false,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day03/kharkhorin-ruins.png",
+      "path": "photos/destination-preview/baikal-rail/day03/kharkhorin-ruins.png",
       "sha256": "7845cd93c504ab1b5a648e3f7c1cafcb854f1a51372e20e208886df19cabe501",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day04/bogd-khan-winter-palace.jpg",
+      "path": "photos/destination-preview/baikal-rail/day04/bogd-khan-winter-palace.jpg",
       "sha256": "c33f4f6ed6d28cb5b3a0378503b006d71db7df368a24aba81a2552d125edb0c9",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day04/harhorin-valley.jpg",
+      "path": "photos/destination-preview/baikal-rail/day04/harhorin-valley.jpg",
       "sha256": "2fdd492ae8df421d469e7fef14fe6623f9ad52c8c041bd5bb64d3e29d5fe92da",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day04/mongolia-folk-dance-morin-khuur-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day04/mongolia-folk-dance-morin-khuur-downloaded.jpg",
       "sha256": "aeda2d2c29c8cc70db5b7c22208c35bec74126e096b47ebdd023fdae523d2c01",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day05/trans-mongolian-railway-train-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day05/trans-mongolian-railway-train-downloaded.jpg",
       "sha256": "cba1a252648acff19cb48154b464ca46a2a92c757f51fcc3c5b188bd3bb5ed51",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day06/irkutsk-city-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day06/irkutsk-city-downloaded.jpg",
       "sha256": "ce09edf62f9fb4442f3b4eced5e2e3a9163f537abad9457e6ee5c63b315b5605",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day07/baikal-ecological-museum-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/baikal-ecological-museum-downloaded.jpg",
       "sha256": "b791a23d05faa1ace34212dabd0e952dd775d962ebbad44695714ea0bc27a35f",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：內容其實屬於Day08生態博物館（存放資料夾與內文所屬日不同），該館Day08已有蝦/海豹卡涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day07/kirov-square-irkutsk-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/kirov-square-irkutsk-downloaded.jpg",
       "sha256": "ebb55eab62c43cd71d28b53e6ca9d443e757a7cbfad85e402e53e6b77c53ed49",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：基洛夫廣場其實是Day09行程，Day09已有真實影片卡（kirov-square-video）涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day07/shaman-rock-landmark-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/shaman-rock-landmark-downloaded.jpg",
       "sha256": "d9319d35375a37f1c6fbb983cc0e6ca055e69156206be60c8cdbe22133ec5452",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day07/spasskaya-church-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/spasskaya-church-downloaded.jpg",
       "sha256": "c8aae9e82a968b61241c7a5e474f60a331021d62de5c37f39cd48fba470b54f2",
       "expect_referenced_in_html": false,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day07/taltsy-wooden-museum-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/taltsy-wooden-museum-downloaded.jpg",
       "sha256": "a25d07c1b3345d4e5df73e0d448047bc4bf26062d7607edf1486a67170a521a6",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：塔利茨博物館其實是Day09行程，Day09已有斌哥本人實拍卡（斯帕斯卡婭塔/博物館外觀等）涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day07/taltsy-wooden-museum.jpg",
+      "path": "photos/destination-preview/baikal-rail/day07/taltsy-wooden-museum.jpg",
       "sha256": "d2d919a75d60cce66405fb1cfde1bd77f081d2b80d2fe3946aca325bf3ca6f49",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：同上一筆，塔利茨博物館Day09已有實拍覆蓋，且此圖有無關遊客入鏡，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day08/burkhan-bay-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day08/burkhan-bay-downloaded.jpg",
       "sha256": "2a5cd9e7b6f6c0cd0f730ff68ba35b613e9d54e13a329fc9352a101b5ac1d1e4",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：布爾汗角/薩滿祈福柱主題，Day07已有shaman-poles-panorama/closeup等卡片涵蓋同一批柱子，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day08/burkhan-bay.jpg",
+      "path": "photos/destination-preview/baikal-rail/day08/burkhan-bay.jpg",
       "sha256": "cc97eae196a8840d5b06ff59c277f083f94b8f377cb13a7277b6e2130e48aded",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day08/buryat-traditional-village-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day08/buryat-traditional-village-downloaded.jpg",
       "sha256": "efab919095f037fd74aaaff0d6e0c061c21de8b853b6ac618eb28846aaf68c97",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：布里亞特村落主題，Day07已有木雕/舞蹈/歌聲卡片涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day08/olkhon-island-shore-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day08/olkhon-island-shore-downloaded.jpg",
       "sha256": "d184d03a3362751634aef3b3ff480f277f4be1d42f0f8c6237b0e80c136710ac",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day08/ust-orda-museum-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day08/ust-orda-museum-downloaded.jpg",
       "sha256": "f33385c612aa01c0891d871b9aff2e2497a82dc4dde4e5bfc0d994998bac2cc4",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：烏斯特奧爾達為Day07往奧利洪島路上的布里亞特文化點，Day07已有村落木雕/舞蹈/歌聲卡片涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day09/irkutsk-railway-station-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day09/irkutsk-railway-station-downloaded.jpg",
       "sha256": "c2a3c05091082061626599ca3ea79fcd4fbf5ff83a8c450a8c2baf71f9d2f468",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：Day09已有斌哥本人實拍的伊爾庫茨克火車站卡（irkutsk-train-station.jpg），判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day09/olkhon-island-sunrise.jpg",
+      "path": "photos/destination-preview/baikal-rail/day09/olkhon-island-sunrise.jpg",
       "sha256": "8b5a497cb2c28b7289edc40cb17d54a5cebbff1c6bda32f135dd7d9f960c1622",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：奧利洪島日出主題屬Day07/08，Day08已有baikal-sunset/olkhon-morning-walk等真實晨昏卡片涵蓋，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day09/olkhon-village-beach-pines-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day09/olkhon-village-beach-pines-downloaded.jpg",
       "sha256": "1fbb9e1945c2d4ca3726703a69a20a4ab5736827c7505faef5493c2a964b75fa",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：檔名寫沙灘松樹，實際內容是薩滿岩／許願樹（與Day07主題重複且檔名誤植），判定不歸位，僅記錄備查"
     },
     {
-      "path": "photos/baikal-rail/day14/gulf-of-finland-coast-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day14/gulf-of-finland-coast-downloaded.jpg",
       "sha256": "0c154a9c2bb04be894e34aa836f7d400aad2c2a829b20f43131f3f177578bd94",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day14/kotlin-island-kronstadt-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day14/kotlin-island-kronstadt-downloaded.jpg",
       "sha256": "f62bbaa6e1147a95a2d2afadcdfa55a1d4939f892f8152ef63a20c721905f7ce",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day14/kronstadt-fortress.jpg",
+      "path": "photos/destination-preview/baikal-rail/day14/kronstadt-fortress.jpg",
       "sha256": "e51661f226b0bed789d85a0802d2f1a3b3ba3db5b4296f8ffdf46780261d50f3",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day14/peterhof-grand-cascade-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day14/peterhof-grand-cascade-downloaded.jpg",
       "sha256": "3a3f37c7ded0ec768b71996ade03720e061f29a9e9d853cd903766203a50d517",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/catherine-palace-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day15/catherine-palace-downloaded.jpg",
       "sha256": "e6e4bbdb8b06b1f091a6a812fc63ce0c1d94bbcfce472ac7d69f82a05c124d4a",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/catherine-park-lake-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day15/catherine-park-lake-downloaded.jpg",
       "sha256": "84ce6be7c37bfb24eba81df29bfa116ef462ad52452b5149c75e494a153bdf75",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/nevsky-prospect-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day15/nevsky-prospect-downloaded.jpg",
       "sha256": "53be57364af914b50ec678687dccaab53d67f4c3c0416dd38061acdb9f5653fc",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/peterhof-gardens-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day15/peterhof-gardens-downloaded.jpg",
       "sha256": "1cec19c4b412a829d024e6c3710f9b6b65ee7b7f6171b029bb7f016f6fd8bcb2",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/saint-isaac-cathedral-downloaded.jpeg",
+      "path": "photos/destination-preview/baikal-rail/day15/saint-isaac-cathedral-downloaded.jpeg",
       "sha256": "3ca9ab7b2edc97e218ef1580c0ab32edd6b08faaa56a0b3404ce2820247edecd",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day15/savior-on-spilled-blood-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day15/savior-on-spilled-blood-downloaded.jpg",
       "sha256": "c159e7fb1fe7cd4fee32bf092ace9578776f4268a7b98e18707e633b98519624",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/kremlin-panorama-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/kremlin-panorama-downloaded.jpg",
       "sha256": "0b55218d23f5bdbe577f5112a189cf55ed51574669803e38ddfce90c0951e5bc",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/moscow-skyline-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/moscow-skyline-downloaded.jpg",
       "sha256": "00f67a9f4f26ad6f3e1d7bde3049c95b4b826b25f8f97641548d0c3ab76273e8",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/palace-square-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/palace-square-downloaded.jpg",
       "sha256": "5838f9de09a800c6da9c56ce9bd11b223d9188ca3eeb1a714bbfa37ec4094609",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/peter-and-paul-fortress-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/peter-and-paul-fortress-downloaded.jpg",
       "sha256": "302e69a3fe906e8f82d8f3c174319fbf87e4265d4c48350752129f31ce4c1d8e",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/st-basil-red-square-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/st-basil-red-square-downloaded.jpg",
       "sha256": "891f5afeea8afa21c49fafd92ac95458744dede37a19fee781df4abed859f644",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/winter-palace-hermitage-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/winter-palace-hermitage-downloaded.jpg",
       "sha256": "daed881b4857501b7af6907f26b4fe52ac0278bd3ae8ee6643ac160213bd85a2",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day16/winter-palace-hermitage.jpg",
+      "path": "photos/destination-preview/baikal-rail/day16/winter-palace-hermitage.jpg",
       "sha256": "0d4192e4569875661d92cff0ce497273db35c25f8d6da68cac9a0a38516cb85a",
       "expect_referenced_in_html": false,
       "note": "2026-09-16 覆核：與已上線的winter-palace-hermitage-downloaded.jpg同一棟建築近似角度，判定重複，故意不歸位"
     },
     {
-      "path": "photos/baikal-rail/day17/kremlin-red-wall-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day17/kremlin-red-wall-downloaded.jpg",
       "sha256": "670467de111c437f4a3a3e340ca50849fee0222ac548ae6e9a348a6527609f81",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day17/moscow-metro-palace-station-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day17/moscow-metro-palace-station-downloaded.jpg",
       "sha256": "01197ded9d13d094749aee5feee47f93ffcad57bef1ce93eac56d43907f02089",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day17/red-square.jpg",
+      "path": "photos/destination-preview/baikal-rail/day17/red-square.jpg",
       "sha256": "32a5665f814bf363d7721870ff43f2205a04266871191ee9cb7eb1c917df7c4e",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day17/saint-basil-cathedral-front-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day17/saint-basil-cathedral-front-downloaded.jpg",
       "sha256": "dcc72630d56deb3f55a4a4fa0af1c40460508e106b616ffa547433c921a2e176",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day18/kolomenskoye-estate-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day18/kolomenskoye-estate-downloaded.jpg",
       "sha256": "9307a7bd8e7c152079fbb5fb85b4d58923b361afce8689104623fc3c7ff7bc61",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day18/tsaritsyno-reserve.jpg",
+      "path": "photos/destination-preview/baikal-rail/day18/tsaritsyno-reserve.jpg",
       "sha256": "e9d12ba1be4baa93fda93cd356fe9840b46a9f8ce36e238b7f22d539b440bc0c",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day19/izmailovo-market-kremlin-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day19/izmailovo-market-kremlin-downloaded.jpg",
       "sha256": "1f226433b8c15659540ead0f663964dc597039218fff5335dc4ef044021e345f",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day19/izmailovo-park-downloaded.jpg",
+      "path": "photos/destination-preview/baikal-rail/day19/izmailovo-park-downloaded.jpg",
       "sha256": "7ed6cd7fa21eed385928d8716bd9a23a751d852aeb568846b8fbae8e4efd8a4f",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day19/sparrow-hills-viewpoint.jpg",
+      "path": "photos/destination-preview/baikal-rail/day19/sparrow-hills-viewpoint.jpg",
       "sha256": "264a0c048e868a56e0a32bb2f00179e61556628d2a9d4ac73783139e312182c3",
       "expect_referenced_in_html": true,
       "note": ""
     },
     {
-      "path": "photos/baikal-rail/day20/return-flight.jpg",
+      "path": "photos/destination-preview/baikal-rail/day20/return-flight.jpg",
       "sha256": "13951606205b546931b5e9e6e7aaaf104fa4f0cac8f0ea8d67b6c5cdeaf38727",
       "expect_referenced_in_html": true,
       "note": ""
