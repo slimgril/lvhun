@@ -1,7 +1,7 @@
 {
   "_meta": {
     "created": "2026-09-15",
-    "updated": "2026-09-15 (擴大版：全量 SHA-256 比對 Drive 326 個檔案，取代舊版僅憑 EXIF Make 的 11 張清單)",
+    "updated": "2026-09-16（逐日歸位覆核：以Day為單位檢查65張候選圖，3張補回vol1/baikal.html＝Day01機場／Day02烏蘭巴托市容／Day03額爾德尼召主殿；其餘14張逐一核實內容後判定為重複或誤植檔名，故意保持孤兒狀態並記錄理由於各自note欄，避免日後誤判為缺漏）",
     "purpose": "全站確認查無 Drive 來源、屬於使用者自行蒐集的 Landmark 景點示意圖清單。判定方法：對每一張非 OPPO EXIF 的本機圖片，逐位元 SHA-256 比對斌哥 Google Drive 西伯利亞資料夾全部 326 個原始檔案，完全找不到吻合者才列入。任何任務要修改、搬移、刪除下列任一檔案，或修改它在 vol1/baikal.html 裡對應卡片的文字/位置前，必須先執行 scripts/verify_landmarks.py 確認目前基準狀態，並取得使用者明確同意。",
     "how_to_verify": "python3 scripts/verify_landmarks.py",
     "excluded_confirmed_personal": [
@@ -16,14 +16,14 @@
     {
       "path": "photos/baikal-rail/day01/beijing-airport.jpg",
       "sha256": "20b3eb33443d62dfd536c119cc1a1ed91eb94b6dbedda67bf9a823b2be949cb6",
-      "expect_referenced_in_html": false,
-      "note": ""
+      "expect_referenced_in_html": true,
+      "note": "2026-09-16 歸位：補上 Day01 開場機場卡"
     },
     {
       "path": "photos/baikal-rail/day02/chinggis-khaan-statue.jpg",
       "sha256": "1843247fa0a3ef94a470bce50fa084da0333d9881693726b3415aae674d66a95",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：同一尊成吉思汗雕像已有3張不同角度卡片（遠景/銅像/近看本體），此為第4張近拍臉部特寫，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day02/genghis-khan-statue.png",
@@ -58,8 +58,8 @@
     {
       "path": "photos/baikal-rail/day02/ulaanbaatar-city-downloaded.jpg",
       "sha256": "0a47e855d49a01de41f3ebebaa8c01b08404341804184883b3dee2bdc0c93964",
-      "expect_referenced_in_html": false,
-      "note": ""
+      "expect_referenced_in_html": true,
+      "note": "2026-09-16 歸位：補上烏蘭巴托藍天大廈卡（原開場卡誤用草原圖，此卡補真正市容）"
     },
     {
       "path": "photos/baikal-rail/day03/camel-ride.jpg",
@@ -88,8 +88,8 @@
     {
       "path": "photos/baikal-rail/day03/erdene-zuu-monastery.jpg",
       "sha256": "07eb1ea15dc09344049b956b39386a214e6fbad15a6490f48b88d782a3b02bce",
-      "expect_referenced_in_html": false,
-      "note": ""
+      "expect_referenced_in_html": true,
+      "note": "2026-09-16 歸位：補上額爾德尼召主殿地面視角卡"
     },
     {
       "path": "photos/baikal-rail/day03/grassland-horsemanship.jpg",
@@ -161,13 +161,13 @@
       "path": "photos/baikal-rail/day07/baikal-ecological-museum-downloaded.jpg",
       "sha256": "b791a23d05faa1ace34212dabd0e952dd775d962ebbad44695714ea0bc27a35f",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：內容其實屬於Day08生態博物館（存放資料夾與內文所屬日不同），該館Day08已有蝦/海豹卡涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day07/kirov-square-irkutsk-downloaded.jpg",
       "sha256": "ebb55eab62c43cd71d28b53e6ca9d443e757a7cbfad85e402e53e6b77c53ed49",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：基洛夫廣場其實是Day09行程，Day09已有真實影片卡（kirov-square-video）涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day07/shaman-rock-landmark-downloaded.jpg",
@@ -185,19 +185,19 @@
       "path": "photos/baikal-rail/day07/taltsy-wooden-museum-downloaded.jpg",
       "sha256": "a25d07c1b3345d4e5df73e0d448047bc4bf26062d7607edf1486a67170a521a6",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：塔利茨博物館其實是Day09行程，Day09已有斌哥本人實拍卡（斯帕斯卡婭塔/博物館外觀等）涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day07/taltsy-wooden-museum.jpg",
       "sha256": "d2d919a75d60cce66405fb1cfde1bd77f081d2b80d2fe3946aca325bf3ca6f49",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：同上一筆，塔利茨博物館Day09已有實拍覆蓋，且此圖有無關遊客入鏡，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day08/burkhan-bay-downloaded.jpg",
       "sha256": "2a5cd9e7b6f6c0cd0f730ff68ba35b613e9d54e13a329fc9352a101b5ac1d1e4",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：布爾汗角/薩滿祈福柱主題，Day07已有shaman-poles-panorama/closeup等卡片涵蓋同一批柱子，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day08/burkhan-bay.jpg",
@@ -209,7 +209,7 @@
       "path": "photos/baikal-rail/day08/buryat-traditional-village-downloaded.jpg",
       "sha256": "efab919095f037fd74aaaff0d6e0c061c21de8b853b6ac618eb28846aaf68c97",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：布里亞特村落主題，Day07已有木雕/舞蹈/歌聲卡片涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day08/olkhon-island-shore-downloaded.jpg",
@@ -221,25 +221,25 @@
       "path": "photos/baikal-rail/day08/ust-orda-museum-downloaded.jpg",
       "sha256": "f33385c612aa01c0891d871b9aff2e2497a82dc4dde4e5bfc0d994998bac2cc4",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：烏斯特奧爾達為Day07往奧利洪島路上的布里亞特文化點，Day07已有村落木雕/舞蹈/歌聲卡片涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day09/irkutsk-railway-station-downloaded.jpg",
       "sha256": "c2a3c05091082061626599ca3ea79fcd4fbf5ff83a8c450a8c2baf71f9d2f468",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：Day09已有斌哥本人實拍的伊爾庫茨克火車站卡（irkutsk-train-station.jpg），判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day09/olkhon-island-sunrise.jpg",
       "sha256": "8b5a497cb2c28b7289edc40cb17d54a5cebbff1c6bda32f135dd7d9f960c1622",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：奧利洪島日出主題屬Day07/08，Day08已有baikal-sunset/olkhon-morning-walk等真實晨昏卡片涵蓋，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day09/olkhon-village-beach-pines-downloaded.jpg",
       "sha256": "1fbb9e1945c2d4ca3726703a69a20a4ab5736827c7505faef5493c2a964b75fa",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：檔名寫沙灘松樹，實際內容是薩滿岩／許願樹（與Day07主題重複且檔名誤植），判定不歸位，僅記錄備查"
     },
     {
       "path": "photos/baikal-rail/day14/gulf-of-finland-coast-downloaded.jpg",
@@ -341,7 +341,7 @@
       "path": "photos/baikal-rail/day16/winter-palace-hermitage.jpg",
       "sha256": "0d4192e4569875661d92cff0ce497273db35c25f8d6da68cac9a0a38516cb85a",
       "expect_referenced_in_html": false,
-      "note": ""
+      "note": "2026-09-16 覆核：與已上線的winter-palace-hermitage-downloaded.jpg同一棟建築近似角度，判定重複，故意不歸位"
     },
     {
       "path": "photos/baikal-rail/day17/kremlin-red-wall-downloaded.jpg",
