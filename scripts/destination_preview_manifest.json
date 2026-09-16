@@ -1,9 +1,10 @@
 {
   "_meta": {
     "created": "2026-09-15",
-    "updated": "2026-09-16（逐日歸位覆核：以Day為單位檢查65張候選圖，3張補回vol1/baikal.html＝Day01機場／Day02烏蘭巴托市容／Day03額爾德尼召主殿；其餘14張逐一核實內容後判定為重複或誤植檔名，故意保持孤兒狀態並記錄理由於各自note欄，避免日後誤判為缺漏）",
-    "purpose": "全站確認查無 Drive 來源、屬於使用者自行蒐集的 Landmark 景點示意圖清單。判定方法：對每一張非 OPPO EXIF 的本機圖片，逐位元 SHA-256 比對斌哥 Google Drive 西伯利亞資料夾全部 326 個原始檔案，完全找不到吻合者才列入。任何任務要修改、搬移、刪除下列任一檔案，或修改它在 vol1/baikal.html 裡對應卡片的文字/位置前，必須先執行 scripts/verify_landmarks.py 確認目前基準狀態，並取得使用者明確同意。",
-    "how_to_verify": "python3 scripts/verify_landmarks.py",
+    "updated": "2026-09-16（術語正名：Landmark 一律改稱「景點導覽／destination_preview」，避免未來 AI 誤解；manifest／校驗腳本檔名同步改名，內容與判定邏輯不變。逐日歸位覆核：以Day為單位檢查65張候選圖，3張補回vol1/baikal.html＝Day01機場／Day02烏蘭巴托市容／Day03額爾德尼召主殿；其餘14張逐一核實內容後判定為重複或誤植檔名，故意保持孤兒狀態並記錄理由於各自note欄，避免日後誤判為缺漏）",
+    "terminology_note": "2026-09-16 起本專案不再使用「Landmark」一詞，一律稱「景點導覽」（英文代號 destination_preview），代表行前蒐集的景點示意圖，跟斌哥本人 OPPO 實拍的「旅人實拍照片／traveler_photo」相對。這份檔案與 note 欄裡較早的歷史紀錄可能還留著舊稱「Landmark」，僅供追溯脈絡，語意等同景點導覽，不需要回溯改字。",
+    "purpose": "全站確認查無 Drive 來源、屬於使用者自行蒐集的景點導覽（destination_preview）示意圖清單。判定方法：對每一張非 OPPO EXIF 的本機圖片，逐位元 SHA-256 比對斌哥 Google Drive 西伯利亞資料夾全部 326 個原始檔案，完全找不到吻合者才列入。任何任務要修改、搬移、刪除下列任一檔案，或修改它在 vol1/baikal.html 裡對應卡片的文字/位置前，必須先執行 scripts/verify_destination_preview.py 確認目前基準狀態，並取得使用者明確同意。",
+    "how_to_verify": "python3 scripts/verify_destination_preview.py",
     "excluded_confirmed_personal": [
       "IMG_20260805_075547.jpg",
       "IMG_20260806_122831.jpg",
