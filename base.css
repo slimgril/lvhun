@@ -1056,6 +1056,19 @@
   }
   .sites-grid--preview .site-img { opacity:0.96; }
 
+  /* ── 旅人照片 5 欄快速網格（2026-10-02 · Owner 定案，全書統一採用）──
+     手機/平板 auto-fit 依寬度彈性決定欄數，桌機（≥900px）鎖定 5 欄；
+     卡片高度沿用 .site-img.photo 既有 180px，只是欄數變多、版面不再拉長，
+     感受上下載更快。與 travel-site／jiuzhaigou 的 .sites-grid--fast 同規格，
+     本書（旅魂）往後每一集都比照這個版型，不再各卷各自為政。 */
+  .sites-grid--fast {
+    grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+    gap:12px;
+  }
+  @media (min-width:900px) {
+    .sites-grid--fast { grid-template-columns:repeat(5, 1fr); }
+  }
+
   /* ── TIMELINE ROW (for route summary) ── */
   .timeline {
     display:flex; gap:0; overflow-x:auto; padding:20px 0;
