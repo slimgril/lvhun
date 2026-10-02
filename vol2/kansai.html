@@ -169,5 +169,309 @@
   <p><strong>丫斌哥 World Journey</strong>　日本關西自由行</p>
   <p style="margin-top:8px;font-size:0.78rem;">© 2026　持續更新中…</p>
 </footer>
+<!-- ── Video Renderer ── -->
+<script>
+/* ─────────────────────────────────────────────────────────────────────
+   Video Renderer · 影片獨立呈現邏輯（第二階段：影片為主角）
+   ─────────────────────────────────────────────────────────────────────
+   影片與照片的媒體特性不同，不共用同一套排版與互動規則。
+
+   1. 保留原始比例
+      讀取影片自身的 videoWidth / videoHeight 寫入 --video-ar，外框比例
+      與影片完全一致。16:9 / 9:16 / 4:3 / 1:1 皆完整呈現，不裁切也不留白。
+
+   2. 卡片寬度由比例反推
+      直式影片自動變窄避免過高，橫式維持大尺寸；並有寬度下限，視窗變矮
+      時也不會被壓成竹竿。桌機與手機同一套邏輯，只是可用高度不同。
+
+   3. 卡片只負責預覽，播放一律走 Lightbox
+      點擊卡片開啟全螢幕播放器（背景變暗、影片置中、保持原始比例、
+      約 90% viewport）。ESC／點背景／右上角 × 皆可關閉。
+
+   4. 長文摺疊
+      描述超過三行自動收合。影片先被看見，故事再被閱讀。
+
+   相依：base.css 的 .video-card / .site-card--video / .video-lightbox
+   ───────────────────────────────────────────────────────────────────── */
+(function () {
+  'use strict';
+
+  var CAP_PX = 400;        /* 預覽框高度上限（桌機） */
+  var CAP_VH = 0.50;       /* 預覽框高度上限（相對視窗） */
+  var CONTENT_MAX = 720;   /* 影片區塊（舞台）寬度＝內文欄寬 */
+  var FRAME_MIN = 300;     /* 影片框寬度下限，避免直式影片變成竹竿 */
+  var FOLD_LIMIT = 80;     /* 約三行字 */
+
+  function reduceMotion() {
+    return window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  /* ── 1 & 2：比例與卡片寬度 ───────────────────────────────────── */
+
+  function heightCap() {
+    var vh = window.innerHeight || 800;
+    return Math.min(CAP_PX, Math.round(vh * CAP_VH));
+  }
+
+  /* 視窗很矮時（手機橫置、視窗被拉扁），若只照高度上限反推，直式影片會被
+     壓成一條竹竿，下方文字也擠成一行兩三個字。寧可略微超過高度上限，也要
+     守住可讀的最小寬度；極窄螢幕退讓到 92vw，確保不橫向溢出。 */
+  function widthFloor() {
+    var vw = window.innerWidth || 360;
+    return Math.min(FRAME_MIN, Math.round(vw * 0.92));
+  }
+
+  /* 影片框自己的寬度：由比例反推、夾在下限與內文欄寬之間。
+     舞台（.video-stage）永遠是內文欄寬，直式影片就在舞台正中央，
+     不會變成貼在左邊的一條窄縮圖。 */
+  function frameWidthFor(ratio) {
+    return Math.max(widthFloor(), Math.min(CONTENT_MAX, Math.round(heightCap() * ratio)));
+  }
+
+  function applyRatio(card, w, h) {
+    if (!w || !h) return;
+    var frame = card.querySelector('.video-card');
+    if (!frame) return;
+
+    var ratio = w / h;
+    card.dataset.videoRatio = ratio.toFixed(4);
+
+    /* grid 卡片(.site-card--video)：不寫 aspect-ratio，高度由 CSS .site-img 統一決定 */
+    if (card.classList.contains('site-card--video')) return;
+
+    frame.style.setProperty('--video-ar', w + ' / ' + h);
+    var fw = frameWidthFor(ratio);
+    frame.style.setProperty('--video-frame-max', fw + 'px');
+
+    /* 影片框窄於舞台時，兩側補上模糊預覽圖當背景，讓留白看起來是刻意的 */
+    var st = card.querySelector('.video-stage');
+    if (st) st.classList.toggle('is-pillarboxed', fw < CONTENT_MAX - 2);
+  }
+
+  /* 把影片框包進舞台容器：舞台吃滿內文欄寬，影片框置中其中 */
+  function stage(card) {
+    var frame = card.querySelector('.video-card');
+    if (!frame || frame.parentNode.classList.contains('video-stage')) return;
+    var st = document.createElement('div');
+    st.className = 'video-stage';
+    var poster = frame.querySelector('.video-card__poster');
+    var bg = poster && poster.style.backgroundImage;
+    if (bg) st.style.setProperty('--stage-poster', bg);
+    frame.parentNode.insertBefore(st, frame);
+    st.appendChild(frame);
+  }
+
+  function measure(card) {
+    var video = card.querySelector('video.video-card__media');
+    if (!video) return;
+
+    function fromVideo() { applyRatio(card, video.videoWidth, video.videoHeight); }
+    if (video.readyState >= 1 && video.videoWidth) {
+      fromVideo();
+    } else {
+      video.addEventListener('loadedmetadata', fromVideo);
+      /* metadata 抵達前先用 poster 比例卡位，避免版面跳動 */
+      var poster = card.querySelector('.video-card__poster');
+      var bg = poster && poster.style.backgroundImage;
+      var m = bg && bg.match(/url\(['"]?(.*?)['"]?\)/);
+      if (m && m[1]) {
+        var probe = new Image();
+        probe.onload = function () {
+          if (!card.dataset.videoRatio) applyRatio(card, probe.naturalWidth, probe.naturalHeight);
+        };
+        probe.src = m[1];
+      }
+    }
+  }
+
+  function recalcWidths() {
+    var cards = document.querySelectorAll('.site-card--video');
+    for (var i = 0; i < cards.length; i++) {
+      var r = parseFloat(cards[i].dataset.videoRatio);
+      if (!r) continue;
+      var frame = cards[i].querySelector('.video-card');
+      if (!frame) continue;
+      var fw = frameWidthFor(r);
+      frame.style.setProperty('--video-frame-max', fw + 'px');
+      var st = cards[i].querySelector('.video-stage');
+      if (st) st.classList.toggle('is-pillarboxed', fw < CONTENT_MAX - 2);
+    }
+  }
+
+  /* ── 3：Lightbox 播放器 ──────────────────────────────────────── */
+
+  var lb = null, lbVideo = null, lastFocus = null;
+
+  function buildLightbox() {
+    if (lb) return lb;
+    lb = document.createElement('div');
+    lb.className = 'video-lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', '影片播放');
+    lb.innerHTML =
+      '<button type="button" class="video-lightbox__close" aria-label="關閉影片">&times;</button>' +
+      '<div class="video-lightbox__stage">' +
+        '<video class="video-lightbox__video" controls playsinline preload="auto"></video>' +
+        '<div class="video-lightbox__caption"></div>' +
+      '</div>';
+    document.body.appendChild(lb);
+    lbVideo = lb.querySelector('.video-lightbox__video');
+
+    lb.querySelector('.video-lightbox__close').addEventListener('click', close);
+    /* 點背景關閉；點影片或控制列不關 */
+    lb.addEventListener('click', function (e) {
+      if (e.target === lb || e.target.classList.contains('video-lightbox__stage')) close();
+    });
+    return lb;
+  }
+
+  function open(card) {
+    var src = card.querySelector('video.video-card__media');
+    if (!src || !src.getAttribute('src')) return;
+    buildLightbox();
+
+    lastFocus = document.activeElement;
+    var label = card.querySelector('.site-name') || card.querySelector('.img-label');
+    lb.querySelector('.video-lightbox__caption').textContent = label ? label.textContent : '';
+
+    lbVideo.src = src.getAttribute('src');
+    lbVideo.currentTime = 0;
+    lb.classList.add('is-open');
+    document.body.classList.add('has-video-lightbox');
+
+    var play = lbVideo.play();
+    if (play && play.catch) play.catch(function () { /* 自動播放被擋，使用者按控制列即可 */ });
+    lb.querySelector('.video-lightbox__close').focus();
+  }
+
+  function close() {
+    if (!lb || !lb.classList.contains('is-open')) return;
+    lb.classList.remove('is-open');
+    document.body.classList.remove('has-video-lightbox');
+    try { lbVideo.pause(); } catch (e) {}
+    /* 清掉 src 讓瀏覽器停止下載 */
+    lbVideo.removeAttribute('src');
+    try { lbVideo.load(); } catch (e) {}
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+  });
+
+  /* ── 影片徽章：第一眼就分辨得出這是影片 ───────────────────────── */
+
+  function badge(card) {
+    var frame = card.querySelector('.video-card');
+    if (!frame || frame.querySelector('.video-badge')) return;
+    var b = document.createElement('span');
+    b.className = 'video-badge';
+    b.setAttribute('aria-hidden', 'true');
+    b.textContent = '影片';
+    frame.appendChild(b);
+  }
+
+  /* ── 4：長文摺疊 ─────────────────────────────────────────────── */
+
+  function fold(desc) {
+    if (desc.dataset.foldReady === '1') return;
+    desc.classList.add('site-desc--foldable');
+    desc.classList.remove('is-collapsed', 'is-expanded');
+    if (desc.scrollHeight <= FOLD_LIMIT) {
+      desc.classList.remove('site-desc--foldable');
+      return;
+    }
+    desc.dataset.foldReady = '1';
+
+    var fade = document.createElement('div');
+    fade.className = 'site-desc__fade';
+    desc.appendChild(fade);
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'site-desc__more';
+    btn.textContent = '展開更多 ▾';
+    btn.setAttribute('aria-expanded', 'false');
+    desc.parentNode.insertBefore(btn, desc.nextSibling);
+
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var opening = desc.classList.contains('is-collapsed');
+      desc.classList.toggle('is-collapsed', !opening);
+      desc.classList.toggle('is-expanded', opening);
+      btn.textContent = opening ? '收合 ▴' : '展開更多 ▾';
+      btn.setAttribute('aria-expanded', opening ? 'true' : 'false');
+      if (!opening && !reduceMotion()) desc.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      /* 彩蛋骨架：完全展開瞬間，若卡片 data-egg-type 不是 none 就觸發驚喜 */
+      var eggCard = desc.closest('.site-card');
+      if (eggCard) {
+        if (opening && eggCard.dataset.eggType && eggCard.dataset.eggType !== 'none') {
+          eggCard.classList.add('has-surprise');
+        } else if (!opening) {
+          eggCard.classList.remove('has-surprise');
+        }
+      }
+    });
+
+    desc.classList.add('is-collapsed');
+  }
+
+  /* ── 啟動 ─────────────────────────────────────────────────────── */
+
+  function wire(card) {
+    var frame = card.querySelector('.video-card');
+    if (!frame || frame._lbWired) return;
+    frame._lbWired = true;
+    frame.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      open(card);
+    });
+    frame.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open(card);
+      }
+    });
+  }
+
+  function init() {
+    var cards = document.querySelectorAll('.site-card--video');
+    for (var i = 0; i < cards.length; i++) {
+      stage(cards[i]);
+      measure(cards[i]);
+      badge(cards[i]);
+      wire(cards[i]);
+    }
+    /* 長文摺疊套用到全站所有描述（照片卡也適用）；
+       未超過三行者不掛載，不會多出任何按鈕。 */
+    var descs = document.querySelectorAll('.site-desc');
+    for (var j = 0; j < descs.length; j++) {
+      /* 彩蛋骨架：每張卡片預設補上 data-egg-type="none" / data-egg-source=""，
+         之後要放彩蛋時，直接在該卡片的 .site-card 上手動改成
+         data-egg-type="animation" 或 "surprise-photo"，並填 data-egg-source 即可。 */
+      var eggCard = descs[j].closest('.site-card');
+      if (eggCard) {
+        if (eggCard.dataset.eggType === undefined) eggCard.dataset.eggType = 'none';
+        if (eggCard.dataset.eggSource === undefined) eggCard.dataset.eggSource = '';
+      }
+      fold(descs[j]);
+    }
+    var t;
+    window.addEventListener('resize', function () {
+      clearTimeout(t);
+      t = setTimeout(recalcWidths, 200);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
