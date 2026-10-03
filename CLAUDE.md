@@ -56,6 +56,17 @@ day-section
 3. 影片卡點擊開全螢幕 Lightbox 播放，不是卡內直接播放
 **新建 trip page 時直接整段複製這支 script，不要只抄卡片的靜態 HTML——這是 2026-10-02 當天實測犯過的錯，複製範本時「連 script 一起」是檢查清單的第一條。**
 
+**照片 Lightbox（HARD，不得省略，2026-10-03 補記）：** 這是**另一支獨立的 `<script>`**，跟上面的 Video Renderer 不是同一段，兩個都要複製，缺一個都會造成卡片點了沒反應。見 `vol1/baikal.html` 結尾的 `#lightbox` 區塊：
+```html
+<div id="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img src="" alt="" loading="lazy" decoding="async">
+  <div class="lightbox-caption"></div>
+</div>
+```
+加上緊接在後的 `<script>`（監聽 `.site-img.photo, .live-img` 的 click，排除 `.video-card`，點擊放大一般照片卡；CSS 已在 `base.css` 的 `#lightbox` 區塊共用，不用另外寫）。
+**血淚教訓：** `vol2/kansai.html` 建頁當天只複製了 Video Renderer（影片卡 Lightbox），漏了這段照片 Lightbox，Day1、Day2 上線後一般照片卡點擊完全沒反應，直到 2026-10-03 才發現補回。新建 trip page 時，`</body>` 前檢查清單至少要有「Video Renderer」＋「照片 Lightbox」兩支 script，缺一不可。
+
 ## 描述文字數 HARD RULE（2026-10-02 · Owner 定案）
 
 單張卡片 `.site-desc` 抓 **100 字左右**（90–110 字為佳），不要忽長忽短（實測教訓：同一天卡片曾經從 20 字到 143 字都有，版面閱讀節奏被破壞）。例外：有特殊紀念意義、需要多介紹典故的景點可以多一點，但也要有節制，不是沒有上限。寫作內容規則本身（身在現場、觀察優先於介紹、禁導覽詞等）見 `travel-site/CLAUDE.md` 的「Travel Notes Writing Rules」，兩本書共用同一套，不要各自為政。
