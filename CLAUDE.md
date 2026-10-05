@@ -29,20 +29,22 @@ render.yaml 的 name: lushun-travel-memoir 跟書名拼音 lvhun 對不上，是
 > **此為 Owner 最終版型，任何 AI 不得以「沒有固定」為由更動；有疑問先問 Owner。**
 > 取代 2026-10-02 統整的舊寫法（舊版「條件式生成」的規定全部廢止，不再依素材有無省略景點導覽或時段分區）。溯源 2026-09-16 commit `6b92bc9`。
 
-每個 trip page（`volN/<trip>.html`）的逐日內容，固定兩層、三個時段，順序不得變：
+每個 trip page（`volN/<trip>.html`）的逐日內容，固定三個時段，順序不得變：
 
 ```
 day-section
 ├── day-header（day-badge／date／route／accommodation）
-├── ① section-divider "✦ 景點導覽" + sites-grid sites-grid--preview   ← 每天必有
-│     Owner 行前挑選的純景點照（無人入鏡），放 photos/destination-preview/<行程>/dayNN/，
+├── （有行前行程規劃的旅程限定）section-divider "✦ 景點導覽" + sites-grid sites-grid--preview
+│     Owner 依行程表預先挑選的純景點照（無人入鏡），放 photos/destination-preview/<行程>/dayNN/，
 │     上架即鎖定（檔案 chmod 444／目錄 chmod 555），不得與旅人照片混放、不得替換或刪除
-├── ② section-divider "✦ 早" + sites-grid sites-grid--fast（旅人實拍）  ← 固定有
+├── ① section-divider "✦ 早" + sites-grid sites-grid--fast（旅人實拍）  ← 固定有
 ├── section-divider "✦ 中" + sites-grid sites-grid--fast                 ← 固定有
 └── section-divider "✦ 晚" + sites-grid sites-grid--fast                 ← 固定有
 ```
 
-- **三個時段分區固定都要有**：某時段沒有照片時，保留分隔線，下方放一行灰字「（本時段無照片）」，不得省略分區。
+**景點導覽區（R5，2026-10-06 Owner 裁決，取代同日稍早的 R3-2 寫法）：** 景點導覽區**限有行前行程規劃的旅程**（Owner 依既定行程表預先挑圖）每天必有；**自由行（無事先行程規劃，例如關西自由行）整趟不設景點導覽區**，Day Page 直接從 ✦ 早／中／晚 旅人實拍開始，不放空骨架或「製作中」字樣占位。新開一個 trip page 時，先確認這趟是不是自由行，再決定要不要生這一段。
+
+- **✦ 早／中／晚三個時段分區固定都要有**：某時段沒有照片時，保留分隔線，下方放一行灰字「（本時段無照片）」，不得省略分區。
 - **每行 5 張**：旅人實拍一律 `sites-grid sites-grid--fast`（桌機鎖 5 欄），不得用舊的 `sites-grid`／`sites-grid--pair`。
 - **描述文一律「展開更多」摺疊**：由頁尾 Video Renderer script 負責；新頁面必須連 script 一起複製。
 
