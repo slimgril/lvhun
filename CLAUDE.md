@@ -13,6 +13,8 @@ render.yaml 的 name: lushun-travel-memoir 跟書名拼音 lvhun 對不上，是
 
 **知識讀序（開工必循）：** 本檔 → 下方「共用規則」連結到的 `travel-site/CLAUDE.md` 對應章節 → 要動工的那個 `volN/*.html` 本身的既有內容（抄既有頁面的版型時，先看它的 git log，不要只看 mtime——`baltic.html`／`shanxi.html` 已經停在初版很久沒再更新，`baikal.html` 才是持續迭代中的版本，見下方「範本選用」）。
 
+**AI-KOS 治理（R4，2026-10-06 補記）：** 旅魂（lvhun）同樣受 AI-KOS 治理。開工時 `travel-site/.ai-kos/` 必讀順序：`WORKSPACE.md` → `RESUME_CONTEXT.md` → `DAILY_TRAVEL_UPDATE.md` → `CONTENT_STYLE.md` → `STATUS.md`。
+
 ---
 
 ## 範本選用 HARD RULE（2026-10-02 · 實測教訓）
@@ -22,23 +24,27 @@ render.yaml 的 name: lushun-travel-memoir 跟書名拼音 lvhun 對不上，是
 - 新增任何 `volN/*.html` trip page 之前，先確認三件事：(1) `vol1/baikal.html` 是不是還是 commit 數最多的那個（`git log --oneline -- vol1/*.html` 逐一比對），(2) 它最近一次「結構性」commit 改了什麼（不是看 commit 數字，是看 diff 內容），(3) 本頁要複製的是哪一段結構，直接從那個 commit 的 diff 裡取，不要憑印象從舊頁面手動搬。
 - 這條規則本身也要跟著維護：每次有新的結構性 commit，把下面「Day Page 版型」更新成最新狀態，不要讓這份文件自己也變成過時的範本說明。
 
-## Day Page 版型 HARD RULE（2026-10-02 統整，溯源 2026-09-16 commit `6b92bc9`）
+## Day Page 版型 HARD RULE（Owner 最終版型，2026-10-06 定案）
 
-每個 trip page（`volN/<trip>.html`）的逐日內容，固定結構：
+> **此為 Owner 最終版型，任何 AI 不得以「沒有固定」為由更動；有疑問先問 Owner。**
+> 取代 2026-10-02 統整的舊寫法（舊版「條件式生成」的規定全部廢止，不再依素材有無省略景點導覽或時段分區）。溯源 2026-09-16 commit `6b92bc9`。
+
+每個 trip page（`volN/<trip>.html`）的逐日內容，固定兩層、三個時段，順序不得變：
 
 ```
 day-section
 ├── day-header（day-badge／date／route／accommodation）
-├── [有景點導覽圖才有] section-divider "✦ 景點導覽" + sites-grid sites-grid--preview
-│     （行前預建的純景點照，無人入鏡，鎖定資產，不得替換或刪除；沒有準備
-│       景點導覽圖的天數——例如本書關西自由行全系列——就不生這一段，
-│       不強加空分隔線，見 baikal.html Day10-13 先例）
-├── section-divider "✦ 早" + sites-grid sites-grid--fast（旅人實拍，依拍攝時刻分組）
-├── [有的話] section-divider "✦ 中" + sites-grid sites-grid--fast
-└── [有的話] section-divider "✦ 晚" + sites-grid sites-grid--fast
-      （早/中/晚三節都是「有內容才生該節」，沒有晚間照片就不生「✦ 晚」，
-       不要為了版型完整而留白或硬湊）
+├── ① section-divider "✦ 景點導覽" + sites-grid sites-grid--preview   ← 每天必有
+│     Owner 行前挑選的純景點照（無人入鏡），放 photos/destination-preview/<行程>/dayNN/，
+│     上架即鎖定（檔案 chmod 444／目錄 chmod 555），不得與旅人照片混放、不得替換或刪除
+├── ② section-divider "✦ 早" + sites-grid sites-grid--fast（旅人實拍）  ← 固定有
+├── section-divider "✦ 中" + sites-grid sites-grid--fast                 ← 固定有
+└── section-divider "✦ 晚" + sites-grid sites-grid--fast                 ← 固定有
 ```
+
+- **三個時段分區固定都要有**：某時段沒有照片時，保留分隔線，下方放一行灰字「（本時段無照片）」，不得省略分區。
+- **每行 5 張**：旅人實拍一律 `sites-grid sites-grid--fast`（桌機鎖 5 欄），不得用舊的 `sites-grid`／`sites-grid--pair`。
+- **描述文一律「展開更多」摺疊**：由頁尾 Video Renderer script 負責；新頁面必須連 script 一起複製。
 
 **卡片屬性（HARD）：** 每張 `.site-card` 都要有 `data-photo-type="destination_preview"` 或 `"traveler_photo"`、`data-counted="true/false"`（景點導覽固定 `false`，旅人實拍固定 `true`）——這是 `baikal.html` Video Renderer script 用的屬性系統，**跟 `travel-site`／`jiuzhaigou.html` 用的 `data-egg-type`／`data-fold-video` 靜態屬性是兩套不同系統，不要混用**：lvhun 的頁面一律用這一套，由 `<script>` 在 `init()` 時動態補上預設值，寫死在 HTML 裡也可以但不是必要。
 
@@ -67,9 +73,13 @@ day-section
 加上緊接在後的 `<script>`（監聽 `.site-img.photo, .live-img` 的 click，排除 `.video-card`，點擊放大一般照片卡；CSS 已在 `base.css` 的 `#lightbox` 區塊共用，不用另外寫）。
 **血淚教訓：** `vol2/kansai.html` 建頁當天只複製了 Video Renderer（影片卡 Lightbox），漏了這段照片 Lightbox，Day1、Day2 上線後一般照片卡點擊完全沒反應，直到 2026-10-03 才發現補回。新建 trip page 時，`</body>` 前檢查清單至少要有「Video Renderer」＋「照片 Lightbox」兩支 script，缺一不可。
 
-## 描述文字數 HARD RULE（2026-10-02 · Owner 定案）
+## 描述文字數 HARD RULE（2026-10-02 · Owner 定案；2026-10-06 補硬性區間）
 
-單張卡片 `.site-desc` 抓 **100 字左右**（90–110 字為佳），不要忽長忽短（實測教訓：同一天卡片曾經從 20 字到 143 字都有，版面閱讀節奏被破壞）。例外：有特殊紀念意義、需要多介紹典故的景點可以多一點，但也要有節制，不是沒有上限。寫作內容規則本身（身在現場、觀察優先於介紹、禁導覽詞等）見 `travel-site/CLAUDE.md` 的「Travel Notes Writing Rules」，兩本書共用同一套，不要各自為政。
+單張卡片 `.site-desc` 為 **90–110 字硬性區間**（去除 HTML 標籤與空白後計算），低於 90 或高於 110 視為不合格，不要忽長忽短（實測教訓：同一天卡片曾經從 20 字到 143 字都有，版面閱讀節奏被破壞）。例外：有特殊紀念意義的景點可超出區間，但必須在該卡的 HTML 註解寫明理由，否則不得超出。寫作內容規則本身（身在現場、觀察優先於介紹、禁導覽詞等）見 `travel-site/CLAUDE.md` 的「Travel Notes Writing Rules」，兩本書共用同一套，不要各自為政。
+
+## 描述文禁用人稱代名詞 HARD RULE（2026-10-02 Owner 要求，2026-10-06 補記）
+
+`.site-desc` 與 `.day-closing` 禁用「你、我、他、她、牠、它」（「其他」等複合詞不算）。動物、物件改用名詞或省略主詞。
 
 ## 共用規則（SSOT 在 `travel-site/CLAUDE.md`，本專案同樣適用）
 
