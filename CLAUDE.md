@@ -3,11 +3,13 @@
 ## Workspace（canonical — HARD RULE）
 
 ```
-CANONICAL PROJECT ROOT: /Users/mac/Documents/Projects/旅遊/lvhun
+CANONICAL PROJECT ROOT: /Users/mac/dev/lvhun （2026-10-16 起，取代舊路徑）
 部署：Render static site（lvhun.onrender.com），git push 到 main 後自動部署
 render.yaml 的 name: lushun-travel-memoir 跟書名拼音 lvhun 對不上，是 2026-08-30
 自己手誤的舊名，不是抄別的專案；會不會改看 Owner 之後要不要處理，目前不動它
 ```
+
+**路徑變更記錄（2026-10-16）：** 舊路徑 `/Users/mac/Documents/Projects/旅遊/lvhun` 因 Google Drive 同步把 `.git` 等整批檔案移進垃圾桶、且無法用 AppleScript「Put Back」或本機工具還原，Owner 已停用該資料夾的 Google Drive 同步，改從 GitHub（`github.com/slimgril/lvhun`）重新 clone 到 `~/dev/lvhun`（不在 Documents、不在任何雲端同步路徑下），設為新的正式工作位置。舊路徑殘留內容（`index.html`、`vol2/`）暫留未刪，待 Owner 確認新位置穩定後手動清除；之後所有對話一律以 `~/dev/lvhun` 為準，不要回去舊路徑。
 
 **與 `travel-site` 的關係：** 兩個是獨立的 Git 專案、獨立部署（`travel-site` 是 Cloudflare Pages），但共用同一套「AI KOS」設計語言與寫作規則。`travel-site/CLAUDE.md` 裡標註「全專案（含 lvhun、travel-site）」的規則，對本專案同樣是 HARD RULE，見下方「共用規則」。
 
