@@ -2,3 +2,7 @@
 *.avi
 node_modules/
 .DS_Store
+
+# 內部檔案（repo 根目錄會被 Render 公開，這些不可 commit）
+_交換區/
+vol2/shandong/source/

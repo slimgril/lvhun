@@ -21,6 +21,8 @@ render.yaml 的 name: lushun-travel-memoir 跟書名拼音 lvhun 對不上，是
 
 ## 範本選用 HARD RULE（2026-10-02 · 實測教訓）
 
+> **第二卷 Hero 已鎖定（Owner 2026-11-05）：** `vol2/index.html` 的 hero 不得改動，見下方「Owner 裁示（2026-11-05）」。
+
 > **血淚教訓：** 建 `vol2/kansai.html` 時抄了 `vol1/baltic.html`，結果漏掉 `baikal.html` 在 2026-09-16（commit `6b92bc9`，Owner 指示）做過的 Phase B 改版。`baltic.html`／`shanxi.html` 從 9/13 之後只有一次無關痛癢的小修，`baikal.html` 有 19 次 commit、持續在迭代——**檔案 mtime 新舊不等於內容新舊，一定要查 `git log --oneline -- <檔案>`，commit 數最多、最近仍有實質修改的那個才是目前的標準範本。**
 
 - 新增任何 `volN/*.html` trip page 之前，先確認三件事：(1) `vol1/baikal.html` 是不是還是 commit 數最多的那個（`git log --oneline -- vol1/*.html` 逐一比對），(2) 它最近一次「結構性」commit 改了什麼（不是看 commit 數字，是看 diff 內容），(3) 本頁要複製的是哪一段結構，直接從那個 commit 的 diff 裡取，不要憑印象從舊頁面手動搬。
@@ -123,9 +125,29 @@ day-section
 
 把任務寫進 `/Users/mac/Documents/Projects/旅遊/TASK_DISPATCH.md` 時，規格裡直接引用本檔對應章節（例如「比照 CLAUDE.md『Day Page 版型 HARD RULE』」），不要只口述。審查 Codex 回報時，照上面「範本選用」「Day Page 版型」「描述文字數」三節逐條核對，核對不過就寫修改意見打回去，不要自己先改掉再說 Codex 做錯。
 
+## 交換區（Cowork Claude ⇄ Claude Code，2026-11-05 起）
+
+新工作一律走 `~/dev/lvhun/_交換區/`（規則全文見該資料夾 `README.md`）；`~/dev/REVIEW_DISPATCH.md` 保留當歷史，不再派新工作。
+
+- **資料夾**：`instructions/`（Cowork 寫 `I###_主題.md`）、`reports/`（Claude Code 寫 `R###_主題.md`，與 I 同號）、`archive/`（驗收通過後 I／R 成對移入）。
+- **觸發**：Owner 說「執行交換區指令」→ 做 `instructions/` 裡編號最小、尚無對應 R 的那一份（一次一份）；標了「前置條件」而未達成的，只回報、不開工。
+- **回報**：報告前 10 行是摘要（結論／完成狀態／需 Owner 決定／驗收用數字），細節放後面；不確定就寫「不確定」。
+- **驗收前不 push、不部署**；Owner 另有指示時連本地 commit 也不做。
+- **不公開**：`_交換區/`、`vol2/shandong/source/`（行程表 PDF，含電話）已列 `.gitignore`；`render.yaml` 的 `staticPublishPath: ./` 會公開 repo 根目錄所有檔案，內部文件一律不得 commit。
+
+**Owner 2026-11-05 裁示：** 山東頁名維持「山東賞紅葉」；`photos/destination-preview/shandong/dayNN/` 空資料夾先不 chmod 鎖定，等 Owner 放入照片後再鎖。
+
+## Owner 裁示（2026-11-05，HARD RULE）
+
+1. **第二卷 Hero 已定案，不得再改。** 範圍：`vol2/index.html` 的 hero（含九寨溝、關西自由行、山東三趟），Owner 與 Y冰哥都已同意。只有單一趟頁面（例如 `kansai.html`）自己的 hero 可依該趟需要修改；第二卷封面提案（I001 T3）已取消，不要再提。對第二卷 hero 有疑問，先問 Owner，不要自己判斷。
+2. **內部文件不公開。** repo 根目錄會被 Render 公開；`vol2/task.md`、`vol2/photo-reconciliation-report.md` 已移出追蹤、搬到 `_交換區/archive/`。之後的派工單、稽核報告、行程表一律放 `_交換區/` 或其他已 `.gitignore` 的位置。`CLAUDE.md` 保留追蹤（GitHub 備份）。
+3. **貝加爾文字與照片不符（I001 T4 #1–#4）等 Y冰哥回覆後才處理；#5、#6 不處理。** 關西凍結區（Day 5／6 人味重寫、Day 6 晚間 3 張、10/11 Columbia 吊牌照）照舊不動。
+4. **關西「完結」標示（hero-badge、「更新中」、`vol2/index.html` 的「連載中」）先不改**，等凍結區處理完。
+
 ## Wake commands
 
 | 指令 | 行為 |
 |------|------|
 | **開工** | 先讀本檔，再讀 `/Users/mac/Documents/Projects/旅遊/CLAUDE.md` 的 Current Status |
 | **Ingest** | 跨文件相關內容同步：這份文件本身也要跟著最新的結構性 commit 更新，不要讓範本說明自己過時 |
+| **執行交換區指令** | 依上方「交換區」一節，做編號最小、尚無 R 的那份 I，報告寫進 `_交換區/reports/` |
